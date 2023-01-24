@@ -7,5 +7,5 @@ if __name__ == "__main__":
 
     while(i <= len):
         ans = ans + argv[i]
-        i++
+        i += 1
     print("{}".format(ans))
