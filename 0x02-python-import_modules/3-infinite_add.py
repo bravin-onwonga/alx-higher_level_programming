@@ -6,6 +6,6 @@ if __name__ == "__main__":
     ans = 0
 
     while(i < len):
-        ans = ans + argv[i]
+        ans = ans + int(argv[i])
         i += 1
     print("{}".format(ans))
