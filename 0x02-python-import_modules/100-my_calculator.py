@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
+    import calculating_1
     from calculating_1 import add, sub, mul, div
     from sys import argv
 
