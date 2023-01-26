@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
+
+def calc():
     from sys import argv
     from calculating_1 import add, sub, mul, div
 
@@ -22,3 +23,6 @@ if __name__ == "__main__":
         print("{} {} {} = {}".format(n1, op, n2, mul(n1, n2)))
     else:
         print("{} {} {} = {}".format(n1, op, n2, div(n1, n2)))
+
+if __name__ == "__main__":
+    calc()
