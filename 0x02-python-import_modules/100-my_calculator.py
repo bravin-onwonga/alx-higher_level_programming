@@ -2,7 +2,7 @@
 
 def calc():
     from sys import argv
-    from calculating_1 import add, sub, mul, div
+    from calculator_1 import add, sub, mul, div
 
     len = len(argv) - 1
 
