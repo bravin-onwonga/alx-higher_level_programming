@@ -10,7 +10,8 @@ def calc():
     n1 = int(argv[1])
     n2 = int(argv[3])
     op = argv[2]
-    if op != "+" and  op != "-" and op != "*" and op != "/":
+
+    if op != "+" and op != "-" and op != "*" and op != "/":
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
     if op == "+":
@@ -21,6 +22,7 @@ def calc():
         print("{} {} {} = {}".format(n1, op, n2, mul(n1, n2)))
     else:
         print("{} {} {} = {}".format(n1, op, n2, div(n1, n2)))
+
 
 if __name__ == "__main__":
     calc()
