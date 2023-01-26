@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    import calculating_1
-    from calculating_1 import add, sub, mul, div
     from sys import argv
+    from calculating_1 import add, sub, mul, div
 
-    len = len(argv)
+    len = len(argv) - 1
 
     if len < 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
@@ -17,7 +16,7 @@ if __name__ == "__main__":
         n2 = int(argv[2])
         op = argv[1]
         if op == "+":
-            print("{} {} {} = {}".format(n1, op, n2, add(n1, n2)))
+            print("{} {} {} = {}".format(n1, op, n2, calculating_1.add(n1, n2)))
         elif op == "-":
             print("{} {} {} = {}".format(n1, op, n2, sub(n1, n2)))
         elif op == "*":
