@@ -16,7 +16,7 @@ if __name__ == "__main__":
         exit(1)
     else:
         if op == "+":
-            print("{} {} {} = {}".format(n1, op, n2, calculating_1.add(n1, n2)))
+            print("{} {} {} = {}".format(n1, op, n2, add(n1, n2)))
         elif op == "-":
             print("{} {} {} = {}".format(n1, op, n2, sub(n1, n2)))
         elif op == "*":
