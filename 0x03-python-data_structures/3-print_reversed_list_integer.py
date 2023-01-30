@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 
 def print_reversed_list_integer(my_list=[]):
-    idx = len(my_list) - 1
+    if len(my_list) == 0:
+        return None
 
+    else:
+        idx = len(my_list) - 1
+        
     if idx < 0:
         return None
     while (idx >= 0):
