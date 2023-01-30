@@ -3,9 +3,12 @@
 def print_reversed_list_integer(my_list=[]):
     idx = len(my_list) - 1
 
+    if idx < 0:
+        return None
     while (idx >= 0):
         print("{:d}".format(my_list[idx]))
         idx -= 1
+
 
 if __name__ == "__main__":
     print_reversed_list_integer()
