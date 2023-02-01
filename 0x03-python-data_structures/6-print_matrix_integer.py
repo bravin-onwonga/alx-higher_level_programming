@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
 def print_matrix_integer(matrix=[[]]):
-    for ele in matrix:
-        return ele
+    for i in range(len(a)):
+        for j in range(len(a[i])):
+            print(a[i][j], end=" ")
+        print()
 
 
 if __name__ == "__main__":
