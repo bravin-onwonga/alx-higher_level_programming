@@ -6,9 +6,11 @@ def no_c(my_string):
 
     for i in range(len_str):
         if my_string[i] == "c" or my_string[i] == "C":
-            my_string[i] = ""
-        new_str = new_str.join(my_string[i])
-    return new_str
+            new_str = new_str.join("")
+        else:
+            new_str = new_str.join(my_string[i])
+    print(new_str)
+    print(my_string)
 
 
 if __name__ == "__main__":
