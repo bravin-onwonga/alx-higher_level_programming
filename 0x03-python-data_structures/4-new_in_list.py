@@ -15,7 +15,7 @@ def new_in_list(my_list, idx, element):
 
     if idx > len_my_list:
         _cpy_list(my_list)
-    if idx < 0:
+    elif idx < 0:
         _cpy_list(my_list)
     else:
         new_list = _cpy_list(my_list)
