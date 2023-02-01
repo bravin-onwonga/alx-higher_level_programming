@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-idef add_tuple(tuple_a=(), tuple_b=()):
+def add_tuple(tuple_a=(), tuple_b=()):
     list_a = list(tuple_a)
     list_b = list(tuple_b)
     list_sum = []
