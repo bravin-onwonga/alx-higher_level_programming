@@ -18,9 +18,11 @@ def new_in_list(my_list, idx, element):
     if idx < 0:
         _cpy_list(my_list)
     else:
-        my_list[idx] = element
-        _cpy_list(my_list)
-
+        new_list = _cpy_list(my_list)
+        new_list[idx] = element
+        return new_list
+    return my_list
+        
 
 if __name__ == "__main__":
     new_in_list()
