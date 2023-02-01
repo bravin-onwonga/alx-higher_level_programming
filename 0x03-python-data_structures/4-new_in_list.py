@@ -19,7 +19,7 @@ def new_in_list(my_list, idx, element):
         _cpy_list(my_list)
     else:
         my_list[idx] = element
-        _cpy_lsit(my_list)
+        _cpy_list(my_list)
 
 
 if __name__ == "__main__":
