@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 def print_matrix_integer(matrix=[[]]):
-    for i in range(len(a)):
-        for j in range(len(a[i])):
-            print("{:d}".format(a[i][j], end=" "))
+    for i in range(len(matrix)):
+        for j in range(len(matrix[i])):
+            print("{:d}".format(matrix[i][j], end=" "))
 
 
 if __name__ == "__main__":
