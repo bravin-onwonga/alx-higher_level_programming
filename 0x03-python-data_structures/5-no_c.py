@@ -9,8 +9,7 @@ def no_c(my_string):
             new_str = new_str.join("")
         else:
             new_str = new_str.join(my_string[i])
-    print(new_str)
-    print(my_string)
+    return new_str
 
 
 if __name__ == "__main__":
