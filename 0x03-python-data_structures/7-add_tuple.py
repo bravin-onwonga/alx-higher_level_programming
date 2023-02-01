@@ -7,4 +7,4 @@ def add_tuple(tuple_a=(), tuple_b=()):
     for i, j in zip(list_a, list_b):
         list_sum.append(i + j)
     tuple_sum = tuple(list_sum)
-    return tuple_c
+    return tuple_sum
