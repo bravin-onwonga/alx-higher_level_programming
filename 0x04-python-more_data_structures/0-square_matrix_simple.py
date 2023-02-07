@@ -4,7 +4,9 @@ def square_matrix_simple(matrix=[]):
     matrix_squared = []
 
     for r in matrix:
+        a = []
         for c in r:
-            matrix_squared.append(c ** 2)
+            a.append(c ** 2)
+        matrix_squared.append(a)
         
     return matrix_squared
