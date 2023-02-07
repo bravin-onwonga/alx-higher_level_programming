@@ -5,6 +5,6 @@ def square_matrix_simple(matrix=[]):
 
     for r in matrix:
         for c in r:
-            matrix_squared = [c ** 2]
+            matrix_squared.append(c ** 2)
         
     return matrix_squared
