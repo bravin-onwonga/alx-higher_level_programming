@@ -8,5 +8,5 @@ def square_matrix_simple(matrix=[]):
         for c in r:
             a.append(c ** 2)
         matrix_squared.append(a)
-        
+    
     return matrix_squared
