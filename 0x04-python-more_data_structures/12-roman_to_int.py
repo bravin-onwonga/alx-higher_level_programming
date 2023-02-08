@@ -7,17 +7,16 @@ def roman_to_int(roman_string):
     if roman_string is None or type(roman_string) != str:
         return None
 
-    else:
-        len_roman = len(roman_string) - 2
-        result = 0
-        i = 0
+    len_roman = len(roman_string) - 2
+    result = 0
+    i = 0
 
-        while (i <= len_roman):
-            if roman_dict[roman_string[i]] >= roman_dict[roman_string[i + 1]]:
-                result = result + roman_dict[roman_string[i]]
-            else:
-                result = result - roman_dict[roman_string[i]]
-                i += 1
+    while (i <= len_roman):
+        if roman_dict[roman_string[i]] >= roman_dict[roman_string[i + 1]]:
+            result = result + roman_dict[roman_string[i]]
+        else:
+            result = result - roman_dict[roman_string[i]]
+            i += 1
 
-        result = result + roman_dict[roman_string[i]]
-        return result
+    result = result + roman_dict[roman_string[i]]
+    return result
