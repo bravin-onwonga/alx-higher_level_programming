@@ -11,7 +11,7 @@ def roman_to_int(roman_string):
     if len_roman == 1:
         return roman_dict[roman_string]
 
-    while (i <= len_roman):
+    while (i <= (len_roman - 2)):
         if roman_dict[roman_string[i]] >= roman_dict[roman_string[i + 1]]:
             result = result + roman_dict[roman_string[i]]
         else:
