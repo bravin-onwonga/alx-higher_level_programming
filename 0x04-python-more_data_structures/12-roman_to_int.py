@@ -16,7 +16,7 @@ def roman_to_int(roman_string):
             result = result + roman_dict[roman_string[i]]
         else:
             result = result - roman_dict[roman_string[i]]
-            i += 1
+        i += 1
 
     result = result + roman_dict[roman_string[i]]
     return result
