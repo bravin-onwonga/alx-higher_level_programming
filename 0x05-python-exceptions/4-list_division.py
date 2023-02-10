@@ -4,9 +4,8 @@ def list_division(my_list_1, my_list_2, list_length):
     my_new_list = []
 
     try:
-        for x, y in zip(my_list_1, my_list_2):
-            my_new_list.append(x / y)
-    
+        for i in range(list_length):
+            my_new_list.append(my_list_1[i], my_list_2[i])    
     except ZeroDivisionError:
         print("division by 0")
         my_new_list.append(0)
