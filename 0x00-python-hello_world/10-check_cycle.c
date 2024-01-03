@@ -9,7 +9,8 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *current = list;
+	listint_t *current = list, *temp;
+	int i = 0, j = 0;
 
 	current = list;
 	while (current->next != list)
@@ -18,7 +19,17 @@ int check_cycle(listint_t *list)
 		{
 			return (0);
 		}
+
+		temp = list;
+		while (j <= i)
+		{
+			if (current->next == temp)
+				return (1);
+			temp = temp->next;
+			j++;
+		}
 		current = current->next;
+		i++;
 	}
 
 	return (1);
