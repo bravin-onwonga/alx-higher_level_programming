@@ -12,6 +12,9 @@ int check_cycle(listint_t *list)
 	listint_t *current = list, *temp;
 	int i = 0, j = 0;
 
+	if (list == NULL)
+		exit(EXIT_FAILURE);
+
 	current = list;
 	while (current->next != list)
 	{
