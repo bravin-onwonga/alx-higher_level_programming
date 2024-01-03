@@ -13,7 +13,7 @@ int check_cycle(listint_t *list)
 	int i = 0, j = 0;
 
 	if (list == NULL)
-		exit(EXIT_FAILURE);
+		return (0);
 
 	current = list;
 	while (current->next != list)
