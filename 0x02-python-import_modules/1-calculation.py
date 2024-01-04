@@ -27,4 +27,4 @@ if __name__ == "__main__":
     b = 5
     res = div(a, b)
 
-    print("{:d} * {:d} = {:d}".format(a, b, res))
+    print("{:d} / {:d} = {:d}".format(a, b, res))
