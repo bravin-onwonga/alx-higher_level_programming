@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
         print("{:d} {} {:d} = {:d}".format(a, op, b, res))
 
-    elif (op == "-"):
+    elif (op == "/"):
         res = div(a, b)
 
         print("{:d} {} {:d} = {:d}".format(a, op, b, res))
