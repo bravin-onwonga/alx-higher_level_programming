@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-from line_to_print import line; (lambda: line())()
+__builtins__.__dict__['print']("#pythoniscool")
