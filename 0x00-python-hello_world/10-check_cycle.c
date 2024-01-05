@@ -2,35 +2,25 @@
 
 /**
  * check_cycle - checks for a cycle within a singly linked list
- *
  * @list: head node address
- * Return: (1) has a cycle; otherwise 0
+ * Return: 1 if there is a cycle, 0 otherwise
  */
 
 int check_cycle(listint_t *list)
 {
-	listint_t *curr = list, *temp;
-	int i = 1, j;
+	listint_t *curr = list, *next = list;
 
 	if (list == NULL)
 		return (0);
 
-	while (curr != NULL)
+	while (curr != NULL && curr->next != NULL)
 	{
-		temp = list->next;
-		j = 0;
-		while (j < i)
-		{
-			if (curr == temp)
-			{
-				return (1);
-			}
-			temp = temp->next;
-			j++;
-		}
-		curr = curr->next;
-		i++;
+		next = next->next;
+		curr = curr->next->next;
+
+		if (next == curr)
+			return (1);
 	}
 
-	return (0);
+	return (0); /* No cycle found */
 }
