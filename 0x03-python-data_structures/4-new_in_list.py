@@ -4,7 +4,7 @@ def new_in_list(my_list, idx, element):
     len_my_list = len(my_list)
 
     for i in range(len_my_list):
-        new_list[i] = my_list[i]
+        new_list.append(my_list[i])
 
     if (idx < 0 or idx >= len_my_list):
         pass
