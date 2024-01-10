@@ -1,5 +1,7 @@
 #include "lists.h"
 
+int get_digit_from_end(listint_t *curr, int n);
+
 /**
  * is_palindrome - checks if a singly-list is a palindrome
  *
@@ -10,8 +12,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *curr, *temp;
-	int len_list = 0, i = 0, k = 0, mid_point;
-	int *arr;
+	int len_list = 0, i = 0, n, digit;
 
 	if (*head == NULL)
 		return (1);
@@ -22,31 +23,44 @@ int is_palindrome(listint_t **head)
 		len_list++;
 		curr = curr->next;
 	}
-	arr = malloc(sizeof(int) * len_list);
-
-	if (arr == NULL)
-		exit(EXIT_FAILURE);
-
+	curr = *head;
 	temp = *head;
-	while (i <= len_list && temp != NULL)
-	{
-		arr[i] = temp->n;
-		temp = temp->next;
-		i++;
-	}
-	i--;
-	mid_point = i / 2;
 
-	while (k <= mid_point)
+	n = len_list - 1;
+
+	while (i < (len_list / 2))
 	{
-		if (arr[k] != arr[i])
+		digit = get_digit_from_end(temp, n);
+		if (curr->n != digit)
 		{
-			free(arr);
 			return (0);
 		}
-		k++;
-		i--;
+		n = n - 2;
+		temp = temp->next;
+		curr = curr->next;
+		i++;
 	}
-	free(arr);
+
 	return (1);
+}
+
+/**
+ * get_digit_from_end - gets the digit from the other end to compare
+ *
+ * @curr: pointer to a node
+ * @n: number of iterations
+ * Return: integer at node
+ */
+
+int get_digit_from_end(listint_t *curr, int n)
+{
+	int i = 0;
+
+	while (i < n)
+	{
+		curr = curr->next;
+		i++;
+	}
+
+	return (curr->n);
 }
