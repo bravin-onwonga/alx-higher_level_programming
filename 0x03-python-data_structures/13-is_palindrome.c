@@ -1,5 +1,7 @@
 #include "lists.h"
 
+int check_for_palindrome(listint_t *temp, int len);
+
 /**
  * is_palindrome - checks if a singly-list is a palindrome
  *
@@ -10,8 +12,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *curr, *temp;
-	int len_list = 0, i = 0, k = 0, mid_point;
-	int *arr;
+	int len_list = 0, res;
 
 	if (*head == NULL)
 		return (1);
@@ -22,13 +23,19 @@ int is_palindrome(listint_t **head)
 		len_list++;
 		curr = curr->next;
 	}
-	arr = malloc(sizeof(int) * len_list);
-
-	if (arr == NULL)
-		exit(EXIT_FAILURE);
 
 	temp = *head;
-	while (i <= len_list && temp != NULL)
+
+	res = check_for_palindrome(temp, len_list);
+
+	return (res);
+}
+
+int check_for_palindrome(listint_t *temp, int len)
+{
+	int arr[len], i = 0, mid_point, k = 0;
+
+	while (i <= len && temp != NULL)
 	{
 		arr[i] = temp->n;
 		temp = temp->next;
@@ -41,12 +48,10 @@ int is_palindrome(listint_t **head)
 	{
 		if (arr[k] != arr[i])
 		{
-			free(arr);
 			return (0);
 		}
 		k++;
 		i--;
 	}
-	free(arr);
 	return (1);
 }
