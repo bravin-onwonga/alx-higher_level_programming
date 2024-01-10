@@ -22,8 +22,8 @@ int is_palindrome(listint_t **head)
 		len_list++;
 		curr = curr->next;
 	}
+	arr = malloc(sizeof(int) * len_list);
 
-	arr = malloc(sizeof(int) * (len_list - 1));
 	if (arr == NULL)
 		exit(EXIT_FAILURE);
 
