@@ -29,12 +29,16 @@ class Square:
         self.__size = value
 
     def size(self):
+        """
+        Returns: set attribute for class Square
+        """
         return self.__size
 
-    """
-    Returns:
-        The square of size
-    """
+
     def area(self):
+        """
+        Returns:
+            The square of size
+        """
         res = self.__size**2
         return (res)
