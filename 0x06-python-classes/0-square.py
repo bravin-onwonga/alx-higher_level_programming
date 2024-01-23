@@ -3,6 +3,8 @@
 class:
     a simple class that does nothing
 """
+
+
 class Square:
     """
     Does nothing
