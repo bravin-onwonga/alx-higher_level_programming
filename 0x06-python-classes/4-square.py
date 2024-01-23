@@ -7,12 +7,16 @@ class:
 
 class Square:
     def __init__(self, size=0):
+        """
+        Attributes:
+            size: private class attribute for class square
+        """
         self.__size = size
 
     def size(self, value):
         """
         Attributes:
-            size: private class attribute for class square
+            value: private instance attribute for class square
 
         Raises:
             TypeError: if size is not an integer
