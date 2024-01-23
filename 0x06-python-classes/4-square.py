@@ -11,17 +11,24 @@ class Square:
         Square: A simple class  with a private attribute
     """
     def __init__(self, size=0):
+        self.__size = size
         """
         Attributes:
             __size: private class attribute for class square
         """
-        self.__size = size
 
+    @property
+    def size(self):
+        """
+        Returns: set attribute for class Square
+        """
+        return self.__size
+
+    @size.setter
     def size(self, value):
         """
         Attributes:
             value: public instance attribute for class square
-            __size: private class attribute
 
         Raises:
             TypeError: if size is not an integer
@@ -32,12 +39,6 @@ class Square:
         if (value < 0):
             raise ValueError("size must be >= 0")
         self.__size = value
-
-    def size(self):
-        """
-        Returns: set attribute for class Square
-        """
-        return self.__size
 
     def area(self):
         """
