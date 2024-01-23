@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 class:
-    A simple class  with a private attribute
+    Square: A simple class  with a private attribute
 """
 
 
