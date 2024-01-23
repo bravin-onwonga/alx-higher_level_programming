@@ -6,6 +6,10 @@ class:
 
 
 class Square:
+    """
+    class:
+        Square: A simple class  with a private attribute
+    """
     def __init__(self, size=0):
         """
         Attributes:
@@ -40,5 +44,4 @@ class Square:
         Returns:
             The square of size
         """
-        res = self.__size**2
-        return (res)
+        return (self.__size**2)
