@@ -15,9 +15,20 @@ class Square:
         Attributes:
             __size: private class attribute for class Square
             __position: private class attribute for class Square
+
+
+        Raises:
+            TypeError: if size is not an integer
+            ValueError: if size is less than zero
         """
         self.__size = size
         self.__position = position
+        if len(self.__position) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if (self.__position[0] < 0 or self.__position[1] < 0):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if type(self.__position[0]) or type(self.__position[1]) is not int:
+            raise TypeError("position must be a tuple of 2 positive integers")
 
     @property
     def size(self):
@@ -56,7 +67,7 @@ class Square:
             value: public instance attribute position for class square
         """
         self.__position = value
-
+        print(len(self.__position))
 
     def area(self):
         """
@@ -69,19 +80,8 @@ class Square:
         """
         Prints a square using the symbol #
         If size is zero then it prints an empty line
-
-
-        Raises:
-            TypeError: if size is not an integer
-            ValueError: if size is less than zero
         """
         i = 0
-        if len(self.__position) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if len(self.__position) == 2 and (self.__position[0] < 0 or self.__position[1] < 0):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if type(self.__position[0]) is not int  or type(self.__position[1]) is not int:
-            raise TypeError("position must be a tuple of 2 positive integers")
 
         if (self.__size == 0):
             print()
