@@ -11,13 +11,13 @@ class Square:
         Square: A simple class  with a private attribute
     """
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = size
-        self.__position = position
         """
         Attributes:
             __size: private class attribute for class Square
             __position: private class attribute for class Square
         """
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
@@ -59,7 +59,7 @@ class Square:
             TypeError: if size is not an integer
             ValueError: if size is less than zero
         """
-        if len(value) is not 2 or value[0] < 0 or value[1] < 0:
+        if len(value) is not 2 or (value[0] < 0 or value[1] < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 

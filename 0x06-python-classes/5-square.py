@@ -11,11 +11,11 @@ class Square:
         Square: A simple class  with a private attribute
     """
     def __init__(self, size=0):
-        self.__size = size
         """
         Attributes:
             __size: private class attribute for class square
         """
+        self.__size = size
 
     @property
     def size(self):
