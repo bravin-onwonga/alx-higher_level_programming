@@ -55,6 +55,3 @@ class Rectangle:
             value: value to set for height
         """
         self.__height = value
-
-
-
