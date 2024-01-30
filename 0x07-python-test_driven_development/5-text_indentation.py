@@ -2,6 +2,8 @@
 """
 prints a text with 2 new lines after each of these characters: ., ? and :
 """
+
+
 def text_indentation(text):
     """
     Raises:
@@ -14,7 +16,7 @@ def text_indentation(text):
     len_txt = len(text)
     i = 0
 
-    while(i < len_txt):
+    while (i < len_txt):
         c = text[i]
         if c not in chars:
             if c == ' ' and text[i - 1] not in chars:

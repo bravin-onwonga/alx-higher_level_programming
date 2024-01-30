@@ -4,6 +4,8 @@ Simple function that adds two integers
 Returns:
     sum of a and b
 """
+
+
 def add_integer(a, b=98):
     """Simple function that adds two integers
     Raises:
