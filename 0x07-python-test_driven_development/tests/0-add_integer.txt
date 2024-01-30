@@ -1,0 +1,56 @@
+This tests my function
+======================
+
+It adds two integers
+--------------------
+
+``add_integer()`` returns the sum of two integers
+
+First import our function
+::
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Now we run our tests
+::
+
+	>>> add_integer(2, 2)
+	4
+
+	>>> add_integer(8, 9.4)
+	17
+
+Testing our raised errors
+::
+
+	>>> add_integer(8, "ALX")
+	Traceback (most recent call last):
+	TypeError: b must be an integer
+
+	>>> add_integer("ALX", 8)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+Option a is not optional but b is since it has a default value of 98
+::
+
+	>>> add_integer(2)
+	100
+
+Test for when no value is passed
+::
+
+	>>> add_integer()
+	Traceback (most recent call last):
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Should work when negative values are passed
+::
+	>>> add_integer(-4, 5)
+	1
+
+Test if None is passed
+::
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
