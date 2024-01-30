@@ -1,0 +1,30 @@
+===========================
+Test cases for say_my_name
+===========================
+
+``say_my_name`` prints My name is followed by the first and last name separated
+by a space
+
+First, import the module
+::
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Now we run the test
+::
+	>>> say_my_name('Bravin', 'Onwonga')
+	My name is Bravin Onwonga
+
+Last name is optional
+::
+	>>> say_my_name('Guido') # doctest: +NORMALIZE_WHITESPACE
+	My name is Guido
+
+Both first name and last name should be strings
+::
+	>>> say_my_name(1, "Cena")
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+	>>> say_my_name("John", 6)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
