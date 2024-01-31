@@ -15,23 +15,26 @@ def lazy_matrix_mul(m_a, m_b):
     """
     new_matrix = []
 
-    if type(m_a) is not list:
-        raise TypeError("type m_a should be list")
-    if type(m_b) is not list:
-        raise TypeError("type m_b should be list")
-    if type(m_a[0]) is list and not all(isinstance(row, list) and row for row in m_a):
-        raise TypeError("type m_a should be list")
-    if type(m_b[0]) is list and not all(isinstance(row, list) and row for row in m_b):
-        raise TypeError("type m_a should be list")
-
-    if len(m_a) == 0:
-        raise TypeError("m_a shouldn't be empty")
-    if len(m_b) == 0:
-        raise TypeError("m_b shouldn't be empty")
     if not m_a:
         raise TypeError("m_a shouldn't be empty")
     if not m_b:
         raise TypeError("m_b shouldn't be empty")
+    for row in m_a:
+        if len(row) == 0:
+            raise TypeError("m_a shouldn't be empty")
+    for row in m_a:
+        if len(row) == 0:
+            raise TypeError("m_b shouldn't be empty")
+
+    if not isinstance(m_a, list):
+        raise TypeError("type m_a should be list")
+    if not isinstance(m_b, list):
+         raise TypeError("type m_b should be list")
+    if not all(isinstance(row, list) and row for row in m_a):
+        raise TypeError("m_a shouldn't be empty")
+    if not all(isinstance(row, list) and row for row in m_b):
+        raise TypeError("m_b shouldn't be empty")
+
 
     num_col_m_a = 0
     num_row_m_b = 0

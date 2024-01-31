@@ -14,24 +14,25 @@ Now we run Tests
 
 Mutiply with a list
 ::
-	>>> m_a = [1, 2, 3]
+	>>> m_a = [[1, 2, 3]]
 	>>> m_b = [[2, 4, 3], [1, 0, 9], [7, 11, 9]]
 	>>> lazy_matrix_mul(m_a, m_b)
-	array[25, 37, 48]
+	array([[25, 37, 48]])
 
-List with one element
+Matrix with list with one element
 ::
-	>>> m_a = [9]
-	>>> m_b = [1, 2, 3]
+	>>> m_a = [[9]]
+	>>> m_b = [[1, 2, 3]]
 	>>> lazy_matrix_mul(m_a, m_b)
-	[9, 18, 27]
+	array([[ 9, 18, 27]])
 
 Two matrices
 ::
 	>>> m_a = [[2, 3, 6], [4, 9, 5]]
 	>>> m_b = [[4, 6], [5, 8], [9, 6]]
 	>>> lazy_matrix_mul(m_a, m_b)
-	[[77, 72], [106, 126]]
+	array([[ 77,  72],
+           [106, 126]])
 
 Test errors raised
 ::
@@ -87,10 +88,10 @@ When m_a and m_b are not lists
 	>>> m_b = [[4, 6], [5, 8], [9, 6]]
 	>>> lazy_matrix_mul(m_a, m_b)
 	Traceback (most recent call last):
-	type m_a should be list
+	TypeError: type m_a should be list
 
 	>>> m_a = [[2, 3], [4, 9]]
 	>>> m_b = ((1, 2), (3, 4))
 	>>> lazy_matrix_mul(m_a, m_b)
 	Traceback (most recent call last):
-	type m_b should be list
+	TypeError: type m_b should be list

@@ -14,17 +14,17 @@ Now we run Tests
 
 Mutiply with a list
 ::
-	>>> m_a = [1, 2, 3]
+	>>> m_a = [[1, 2, 3]]
 	>>> m_b = [[2, 4, 3], [1, 0, 9], [7, 11, 9]]
 	>>> matrix_mul(m_a, m_b)
-	[25, 37, 48]
+	[[25, 37, 48]]
 
-List with one element
+Matrix with list with one element
 ::
-	>>> m_a = [9]
-	>>> m_b = [1, 2, 3]
+	>>> m_a = [[9]]
+	>>> m_b = [[1, 2, 3]]
 	>>> matrix_mul(m_a, m_b)
-	[9, 18, 27]
+	[[9, 18, 27]]
 
 Two matrices
 ::
@@ -69,7 +69,7 @@ Test for when columns in m_a and rows in m_b don't match
 
 When no values are passed
 ::
-	>>> m_a = []
+	>>> m_a = [[]]
 	>>> m_b = [[4, 6], [5, 8], [9, 6, 4]]
 	>>> matrix_mul(m_a, m_b)
 	Traceback (most recent call last):
@@ -86,9 +86,11 @@ When m_a and m_b are not lists
 	>>> m_a = "Python"
 	>>> m_b = [[4, 6], [5, 8], [9, 6]]
 	>>> matrix_mul(m_a, m_b)
-	m_a should be a list
+	Traceback (most recent call last):
+	TypeError: m_a must be a list
 
 	>>> m_a = [[2, 3], [4, 9]]
 	>>> m_b = ((1, 2), (3, 4))
 	>>> matrix_mul(m_a, m_b)
-	m_b should be a list
+	Traceback (most recent call last):
+	TypeError: m_b must be a list

@@ -14,84 +14,55 @@ def matrix_mul(m_a, m_b):
     """
     new_matrix = []
 
-    if type(m_a) is not list:
-        raise TypeError("m_a must be a list")
-    if type(m_b) is not list:
-        raise TypeError("m_b must be a list")
-    if type(m_a[0]) is list and not all(isinstance(row, list) and row for row in m_a):
-        raise TypeError("m_a must be a list")
-    if type(m_b[0]) is list and not all(isinstance(row, list) and row for row in m_b):
-        raise TypeError("m_b must be a list")
 
-    if len(m_a) == 0:
-        raise TypeError("m_a can't be empty")
-    if len(m_b) == 0:
-        raise TypeError("m_b can't be empty")
     if not m_a:
         raise TypeError("m_a can't be empty")
     if not m_b:
         raise TypeError("m_b can't be empty")
+    for row in m_a:
+        if len(row) == 0:
+            raise TypeError("m_a can't be empty")
+    for row in m_a:
+        if len(row) == 0:
+            raise TypeError("m_b can't be empty")
 
-    num_col_m_a = 0
-    num_row_m_b = 0
+    if not isinstance(m_a, list):
+        raise TypeError("m_a must be a list")
+    if not isinstance(m_b, list):
+        raise TypeError("m_b must be a list")
+    if not all(isinstance(row, list) and row for row in m_a):
+        raise TypeError("m_a can't be empty")
+    if not all(isinstance(row, list) and row for row in m_b):
+        raise TypeError("m_b can't be empty")
 
-    if type(m_a[0]) is list:
-        num_col_m_a = handle_m_a_if_matrix(m_a)
-    else:
-        for n in m_a:
-            if type(n) not in [int, float]:
-                raise TypeError("m_a should contain only integers or floats")
-            num_col_m_a += 1
+    num_col_m_a = handle_m_a_if_matrix(m_a)
 
-    if type(m_b[0]) is list:
-        num_row_m_b = handle_m_b_if_matrix(m_b)
-    else:
-        for n in m_b:
-            if type(n) not in [int, float]:
-                raise TypeError("m_b should contain only integers or floats")
-        num_row_m_b += 1
+    num_row_m_b = handle_m_b_if_matrix(m_b)
 
     if (num_col_m_a != num_row_m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
-    if num_col_m_a == 1:
-        mul = m_a[0]
-        for n in m_b:
-            new_matrix.append(n * mul)
-    elif type(m_a[0]) is not list:
-        len_m_a = len(m_a)
-        i = 0
-        while i < len_m_a:
-            j = 0
-            value = 0
-            while j < len_m_a:
-                value += m_a[j] * m_b[j][i]
-                j += 1
-            new_matrix.append(value)
-            i += 1
-
-    else:
-        num_rows = 0
-        for _ in m_a:
-            num_rows += 1
-        i = 0
-        while (i < num_rows):
-            temp_list = []
-            k = 0
-            j = 0
-            value = 0
-            while (j < num_row_m_b):
-                value += m_a[i][j] * m_b[j][k]
-                j += 1
-                if (j == num_row_m_b):
-                    j = 0
-                    k += 1
-                    temp_list.append(value)
-                    value = 0
-                if (k == len(m_b[0])):
-                    break
-            i += 1
-            new_matrix.append(temp_list)
+    num_rows = 0
+    for _ in m_a:
+        num_rows += 1
+    i = 0
+    while (i < num_rows):
+        temp_list = []
+        k = 0
+        j = 0
+        value = 0
+        while (j < num_row_m_b):
+            value += m_a[i][j] * m_b[j][k]
+            j += 1
+            if (j == num_row_m_b):
+                j = 0
+                k += 1
+                temp_list.append(value)
+                value = 0
+            if (k == len(m_b[0])):
+                break
+        i += 1
+        new_matrix.append(temp_list)
 
     return new_matrix
 
