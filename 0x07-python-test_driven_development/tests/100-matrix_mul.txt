@@ -1,0 +1,82 @@
+============================
+Tests  for module matrix_mul
+============================
+
+``matrix_mul`` returns a new matrix a product of two matrices
+-------------------------------------------------------------
+
+First import the module
+::
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Now we run Tests
+----------------
+
+Mutiply with a list
+::
+	>>> m_a = [1, 2, 3]
+	>>> m_b = [[2, 4, 3], [1, 0, 9], [7, 11, 9]]
+	>>> matrix_mul(m_a, m_b)
+	[25, 37, 48]
+
+List with one element
+::
+	>>> m_a = [9]
+	>>> m_b = [1, 2, 3]
+	>>> matrix_mul(m_a, m_b)
+	[9, 18, 27]
+
+Two matrices
+::
+	>>> m_a = [[2, 3, 6], [4, 9, 5]]
+	>>> m_b = [[4, 6], [5, 8], [9, 6]]
+	>>> matrix_mul(m_a, m_b)
+	[[77, 72], [106, 126]]
+
+Test errors raised
+::
+	>>> m_a = [[2, "school", 6], [4, 9, 5]]
+	>>> m_b = [[4, 6], [5, 8], [9, 6]]
+	>>> matrix_mul(m_a, m_b)
+	Traceback (most recent call last):
+	TypeError: m_a should contain only integers or floats
+
+	>>> m_a = [[2, 3, 6], [4, 9, 5]]
+	>>> m_b = [[4, 6], ["school", 8], [9, 6]]
+	>>> matrix_mul(m_a, m_b)
+	Traceback (most recent call last):
+	TypeError: m_b should contain only integers or floats
+
+	>>> m_a = [[2, 3, 6], [4, 9]]
+	>>> m_b = [[4, 6], [5, 8], [9, 6]]
+	>>> matrix_mul(m_a, m_b)
+	Traceback (most recent call last):
+	TypeError: each row of m_a must be of the same size
+
+	>>> m_a = [[2, 3, 6], [4, 9, 5]]
+	>>> m_b = [[4, 6], [5, 8], [9, 6, 4]]
+	>>> matrix_mul(m_a, m_b)
+	Traceback (most recent call last):
+	TypeError: each row of m_b must be of the same size
+
+Test for when columns in m_a and rows in m_b don't match
+::
+	>>> m_a = [[2, 3], [4, 9]]
+	>>> m_b = [[4, 6], [5, 8], [9, 6]]
+	>>> matrix_mul(m_a, m_b)
+	Traceback (most recent call last):
+	ValueError: m_a and m_b can't be multiplied
+
+When no values are passed
+::
+	>>> m_a = []
+	>>> m_b = [[4, 6], [5, 8], [9, 6, 4]]
+	>>> matrix_mul(m_a, m_b)
+	Traceback (most recent call last):
+	TypeError: m_a can't be empty
+
+	>>> m_a = [[2, 3], [4, 9]]
+	>>> m_b = [[]]
+	>>> matrix_mul(m_a, m_b)
+	Traceback (most recent call last):
+	TypeError: m_b can't be empty
