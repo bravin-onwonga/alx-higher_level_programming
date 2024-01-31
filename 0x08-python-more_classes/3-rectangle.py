@@ -71,16 +71,18 @@ class Rectangle:
         return (2 * (self.__width + self.__height))
 
     def __print__(self):
-        for i in range(self.__height):
-            for k in range(self.__width):
-                print("#", end="")
-            print()
+        if (self.__width != 0 and self.__height != 0):
+            for i in range(self.__height):
+                for k in range(self.__width):
+                    print("#", end="")
+                print()
 
     def __str__(self):
         result = ""
-        for i in range(self.__height):
-            for k in range(self.__width):
-                result += '#'
-            if (i != self.__height - 1):
-                result += '\n'
+        if (self.__width != 0 and self.__height != 0):
+            for i in range(self.__height):
+                for k in range(self.__width):
+                    result += '#'
+                if (i != self.__height - 1):
+                    result += '\n'
         return result
