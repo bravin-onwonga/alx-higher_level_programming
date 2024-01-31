@@ -39,6 +39,10 @@ class Rectangle:
         Attributes:
             value: value to set for width
         """
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
         self.__width = value
 
     @property
@@ -54,6 +58,10 @@ class Rectangle:
         Attributes:
             value: value to set for height
         """
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):
@@ -63,13 +71,15 @@ class Rectangle:
         return (2 * (self.__width + self.__height))
 
     def __print__(self):
+        for i in range(self.__height):
+            for k in range(self.__width):
+                print("#", end="")
+            print()
+
+    def __str__(self):
         result = ""
         for i in range(self.__height):
             for k in range(self.__width):
-                result += "#"
+                result += '#'
             result += '\n'
-
         return result
-
-    def __str__(self):
-        return self.__print__()
