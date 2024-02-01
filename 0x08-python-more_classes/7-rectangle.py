@@ -30,8 +30,6 @@ class Rectangle:
         self.__width = width
         self.__height = height
 
-        self.print_symbol = "#"
-
         type(self).number_of_instances += 1
 
     @property
