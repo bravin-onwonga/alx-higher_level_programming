@@ -26,5 +26,3 @@ def solve_puzzle(N):
             new_matrix.append[i, n]
         print(new_matrix)
         new_matrix = []
-
-
