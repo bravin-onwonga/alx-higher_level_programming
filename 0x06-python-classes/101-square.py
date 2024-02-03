@@ -118,7 +118,6 @@ class Square:
 
         if (self.__size == 0):
             print()
-            return
 
         for _ in range(self.__position[1]):
             print()
@@ -134,6 +133,5 @@ class Square:
                 k += 1
             i += 1
             if (i != self.__size):
-                    square_str += '\n'
-
+                square_str += '\n'
         return (square_str)
