@@ -107,3 +107,33 @@ class Square:
             print(" " * self.__position[0], end="")
             print("#" * self.__size)
             i += 1
+
+    def __str__(self):
+        """
+        Prints a square using the symbol #
+        If size is zero then it prints an empty line
+        """
+        square_str = ""
+        i = 0
+
+        if (self.__size == 0):
+            print()
+            return
+
+        for _ in range(self.__position[1]):
+            print()
+
+        while (i < self.__size):
+            k = 0
+            while (k < self.__position[0]):
+                square_str += ' '
+                k += 1
+            k = 0
+            while (k < self.size):
+                square_str += "#"
+                k += 1
+            square_str += '\n'
+            i += 1
+
+
+        return (square_str)
