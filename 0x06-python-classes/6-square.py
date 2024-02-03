@@ -46,7 +46,15 @@ class Square:
         """
         Attributes:
             value: public instance attribute for class square
+
+         Raises:
+            TypeError: if size is not an integer
+            ValueError: if size is less than zero
         """
+        if type(value) is not int:
+            raise TypeError("size must be an integer")
+        if (value < 0):
+            raise ValueError("size must be >= 0")
         self.__size = value
 
     @property
@@ -65,6 +73,9 @@ class Square:
         Raises:
             TypeError: if value is not an integer or len(value) is not two
         """
+        if len(value) != 2 or not all(isinstance(i, int) and i >= 0 for i in value):
+            raise TypeError("position must be a tuple of two non-negative integers")
+
         self.__position = value
 
     def area(self):
