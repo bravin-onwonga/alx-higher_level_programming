@@ -135,5 +135,4 @@ class Square:
             square_str += '\n'
             i += 1
 
-
         return (square_str)
