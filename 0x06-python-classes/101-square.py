@@ -132,7 +132,8 @@ class Square:
             while (k < self.size):
                 square_str += "#"
                 k += 1
-            square_str += '\n'
             i += 1
+            if (i != self.__size):
+                    square_str += '\n'
 
         return (square_str)
