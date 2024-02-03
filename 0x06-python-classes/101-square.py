@@ -117,7 +117,7 @@ class Square:
         i = 0
 
         if (self.__size == 0):
-            print()
+            return (square_str)
 
         for _ in range(self.__position[1]):
             print()
