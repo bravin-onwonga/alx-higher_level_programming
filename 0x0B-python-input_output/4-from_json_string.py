@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Returns a json rep of an object"""
+Returns an object for a json string"""
 import json
 
 
