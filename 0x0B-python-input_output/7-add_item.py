@@ -37,5 +37,6 @@ def add_items_to_json():
         content = json.dumps(new_list)
         my_file.write(content)
 
+
 if __name__ == "__main__":
     add_items_to_json()
