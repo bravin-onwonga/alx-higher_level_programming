@@ -13,5 +13,7 @@ def load_from_json_file(filename):
     Returns:
         Object form json file
     """
-    with open(filename, 'w') as my_file:
-        return json.loads(my_file)
+
+    with open(filename, 'r') as my_file:
+        for line in my_file:
+            return json.loads(line)
