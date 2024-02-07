@@ -31,7 +31,7 @@ def add_items_to_json():
     except FileNotFoundError:
         pass
 
-    new_list = new_list + my_list
+    new_list = my_list + new_list
 
     with open("add_item.json", 'w', encoding="utf-8") as my_file:
         content = json.dumps(new_list)
