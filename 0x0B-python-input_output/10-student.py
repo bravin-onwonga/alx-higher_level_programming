@@ -17,7 +17,7 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def get_attributes(self):
         """Returns a dictionary containing class atrributes and their values"""
         my_dict = {}
         my_keys = [i for i in self.__dict__.keys()]
@@ -36,10 +36,11 @@ class Student:
         """
 
         if attrs is None:
-            return self.to_json()
+            return self.get_attributes()
         else:
             new_dict = self.to_json()
+            my_dict = {}
             for key in new_dict:
-                if key not in attrs:
-                    del new_dict[key]
-        return new_dict
+                if key in attrs:
+                    my_dict[key] = new_dict[key]
+        return my_dict
