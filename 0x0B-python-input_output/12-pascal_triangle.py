@@ -15,7 +15,7 @@ def pascal_triangle(n):
 
     matrix = []
     if n <= 0:
-        return matrix
+        return [[]]
 
     temp_list = [1]
     matrix.append(temp_list)
