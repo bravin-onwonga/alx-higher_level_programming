@@ -15,10 +15,13 @@ def pascal_triangle(n):
 
     matrix = []
     if n <= 0:
-        return [[]]
+        return matrix
 
     temp_list = [1]
     matrix.append(temp_list)
+
+    if n == 1:
+        return matrix
 
     if n == 2:
         matrix.append([1, 1])
