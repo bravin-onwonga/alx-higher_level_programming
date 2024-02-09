@@ -1,0 +1,30 @@
+===========================
+Test for class BaseGeometry
+===========================
+
+Now we import the class module
+::
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Next we create an instance of BaseGeometry
+::
+	>>> bg = BaseGeometry()
+
+Now for the tests
+-----------------
+
+Case for an expected entry
+::
+	>>> bg.integer_validator("my_int", 12)
+
+Case for none integer
+::
+	>>> bg.integer_validator("my_int", "12")
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+Case for negative integer
+::
+	>>> bg.integer_validator("my_int", -2)
+	Traceback (most recent call last):
+	ValueError: my_int must be greater than 0
