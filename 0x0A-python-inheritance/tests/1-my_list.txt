@@ -32,3 +32,40 @@ Check if initial list is changed
 ::
 	>>> print(my_list)
 	[1, 4, 2, 3, 5]
+
+A test for a list of negative numbers
+::
+	>>> neg_list = MyList()
+	>>> neg_list.append(-2)
+	>>> neg_list.append(-3)
+	>>> neg_list.append(-9)
+	>>> neg_list.append(-5)
+	>>> neg_list.append(-1)
+	>>> print(neg_list)
+	[-2, -3, -9, -5, -1]
+
+Check if it is sorted
+::
+	>>> neg_list.print_sorted()
+	[-9, -5, -3, -2, -1]
+
+Check if list is unchanged
+::
+	>>> print(neg_list)
+	[-2, -3, -9, -5, -1]
+
+Empty list
+::
+	>>> emp_list = MyList()
+	>>> print(emp_list)
+	[]
+
+Check for print_sorted method
+::
+	>>> emp_list.print_sorted()
+	[]
+
+Check if list is unchanged
+::
+	>>> print(emp_list)
+	[]
