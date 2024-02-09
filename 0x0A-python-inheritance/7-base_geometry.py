@@ -16,8 +16,6 @@ class BaseGeometry:
             TypeError - if value is not an integer
             ValueError - if value is less than or equal to zero
         """
-        if not name and not value:
-            raise TypeError("BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'")
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
