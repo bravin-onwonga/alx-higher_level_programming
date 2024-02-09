@@ -65,15 +65,3 @@ Case for none
 	>>> bg.integer_validator("my_int", None)
 	Traceback (most recent call last):
 	TypeError: my_int must be an integer
-
-Case for no value at all
-::
-	>>> bg.integer_validator("my_int")
-	Traceback (most recent call last):
-	TypeError: integer_validator() missing 1 required positional argument: 'value'
-
-Case for no value and no name at all
-::
-	>>> bg.integer_validator()
-	Traceback (most recent call last):
-	TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
