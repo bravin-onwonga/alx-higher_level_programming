@@ -13,9 +13,28 @@ Next we create an instance of BaseGeometry
 Now for the tests
 -----------------
 
+Test for the area method
+::
+	>>> bg.area()
+	Traceback (most recent call last):
+	Exception: area() is not implemented
+
+
 Case for an expected entry
 ::
 	>>> bg.integer_validator("my_int", 12)
+
+Case for value being zero
+::
+	>>> bg.integer_validator("my_int", 0)
+	Traceback (most recent call last):
+	ValueError: my_int must be greater than 0
+
+Case for negative integer
+::
+	>>> bg.integer_validator("my_int", -2)
+	Traceback (most recent call last):
+	ValueError: my_int must be greater than 0
 
 Case for none integer
 ::
@@ -23,8 +42,26 @@ Case for none integer
 	Traceback (most recent call last):
 	TypeError: my_int must be an integer
 
-Case for negative integer
+Case for bool value
 ::
-	>>> bg.integer_validator("my_int", -2)
+	>>> bg.integer_validator("my_int", True)
 	Traceback (most recent call last):
-	ValueError: my_int must be greater than 0
+	TypeError: my_int must be an integer
+
+Case for list Value
+::
+	>>> bg.integer_validator("my_int", [2, 3])
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+Case for tuple
+::
+	>>> bg.integer_validator("my_int", (1,))
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+Case for none
+::
+	>>> bg.integer_validator("my_int", None)
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
