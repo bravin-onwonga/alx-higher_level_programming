@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-Rectangle = __import__('8-rectangle').Rectangle
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+inherits_from = __import__('4-inherits_from').inherits_from
 
-print(issubclass(Rectangle, BaseGeometry))
+a = 1
+print(inherits_from(a, int))
