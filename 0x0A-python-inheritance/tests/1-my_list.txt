@@ -1,0 +1,34 @@
+=========================
+Test for 1-my_list.Python
+=========================
+
+``MyList`` is a subclass of class list and has a method that sorts the list in
+ascending order
+
+First, import the module
+::
+	>>> MyList = __import__('1-my_list').MyList
+
+Now we intialize a list and test our method
+::
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> my_list.append(3)
+	>>> my_list.append(5)
+
+Print initial list
+::
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
+
+Check for the printed list
+::
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4, 5]
+
+Check if initial list is changed
+::
+	>>> print(my_list)
+	[1, 4, 2, 3, 5]
