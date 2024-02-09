@@ -60,6 +60,12 @@ Case for tuple
 	Traceback (most recent call last):
 	TypeError: my_int must be an integer
 
+Case for dict
+::
+	>>> bg.integer_validator("my_int", {2, 4})
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
 Case for none
 ::
 	>>> bg.integer_validator("my_int", None)
