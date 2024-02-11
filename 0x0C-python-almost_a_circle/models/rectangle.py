@@ -94,3 +94,8 @@ class Rectangle(Base):
         if (name == "x" or name == "y"):
             if value < 0:
                 raise ValueError("{} must be >= 0".format(name))
+
+    def area(self):
+        """Public method that returns the area value of the Rectangle instance
+        """
+        return (self.__width * self.__height)

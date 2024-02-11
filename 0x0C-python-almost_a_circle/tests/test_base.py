@@ -17,6 +17,3 @@ class TestBase(unittest.TestCase):
         """Test for when value is passed"""
         b1 = Base()
         self.assertEqual(b1.id, 2)
-
-if __name__ == '__main__':
-    unittest.main()
