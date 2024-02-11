@@ -14,5 +14,17 @@ class TestRectangle(unittest.TestCase):
         r3 = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(r3.id, 12)
 
-if __name__ == '__main___':
+    def test_types(self):
+        self.assertRaises(TypeError, lambda: Rectangle("Python", 2, 0, 0))
+        self.assertRaises(TypeError, lambda: Rectangle(10, "Python", 0, 0))
+        self.assertRaises(TypeError, lambda: Rectangle(10, 2, "Python", 0))
+        self.assertRaises(TypeError, lambda: Rectangle(10, 2, 0, "Python"))
+
+    def test_values(self):
+        self.assertRaises(ValueError, lambda: Rectangle(0, 2, 0, 0))
+        self.assertRaises(ValueError, lambda: Rectangle(10, 0, 0, 0))
+        self.assertRaises(ValueError, lambda: Rectangle(10, 2, -2, 0))
+        self.assertRaises(ValueError, lambda: Rectangle(10, 2, 0, -2))
+
+if __name__ == '__main__':
     unittest.main()

@@ -7,7 +7,7 @@ class Rectangle(Base):
     """Child class of Base class"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Instatiates attributes for class Rectangle
+        """Instantiates attributes for class Rectangle
 
         Attributes:
             width - privates attr
@@ -16,6 +16,11 @@ class Rectangle(Base):
             y - privates attr
             id - attr for parent class Base
         """
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+        self.integer_validator("x", x)
+        self.integer_validator("y", y)
+
         self.__width = width
         self.__height = height
         self.__x = x
@@ -32,6 +37,7 @@ class Rectangle(Base):
     def width(self, value):
         """Setter property for attr width
         """
+        self.integer_validator("width", value)
         self.__width = value
 
     @property
@@ -44,6 +50,7 @@ class Rectangle(Base):
     def height(self, value):
         """Setter property for attr height
         """
+        self.integer_validator("height", value)
         self.__height = value
 
     @property
@@ -56,6 +63,7 @@ class Rectangle(Base):
     def x(self, value):
         """Setter property for attr x
         """
+        self.integer_validator("x", value)
         self.__x = value
 
     @property
@@ -68,4 +76,21 @@ class Rectangle(Base):
     def y(self, value):
         """Setter property for attr y
         """
+        self.integer_validator("y", value)
         self.__y = value
+
+    def integer_validator(self, name, value):
+        """Validates an integer
+
+        Raises:
+            TypeError - if value is not an integer
+            ValueError - if value is less than or equal to zero
+        """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if (name == "width" or name == "height"):
+            if value <= 0:
+                raise ValueError("{} must be > 0".format(name))
+        if (name == "x" or name == "y"):
+            if value < 0:
+                raise ValueError("{} must be >= 0".format(name))
