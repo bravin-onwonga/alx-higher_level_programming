@@ -8,10 +8,10 @@ class TestRectangle(unittest.TestCase):
     def test_init(self):
         """Test for id attribute of parent class"""
         r1 = Rectangle(10, 2)
-        self.assertEqual(r1.id, 5)
         r2 = Rectangle(2, 10)
-        self.assertEqual(r2.id, 6)
         r3 = Rectangle(10, 2, 0, 0, 12)
+        self.assertEqual(r1.id, 7)
+        self.assertEqual(r2.id, 8)
         self.assertEqual(r3.id, 12)
 
     def test_types(self):
@@ -38,3 +38,23 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r7.area(), 6)
         r8 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r8.area(), 56)
+
+    def test_display(self):
+        """Test the display method"""
+        r9 = Rectangle(4, 6)
+        rect9 = "####\n####\n####\n####\n####\n####"
+        self.assertEqual(r9.display(), rect9)
+
+        r12 = Rectangle(2, 3, 2, 2)
+        rect12 = "\n\n  ##\n  ##\n  ##"
+        self.assertEqual(r12.display(), rect12)
+
+    def test_str(self):
+        r10 = Rectangle(4, 6, 2, 1, 12)
+        test_str = "[Rectangle] (12) 2/1 - 4/6"
+        self.assertEqual(r10.__str__(), test_str)
+
+        r11 = Rectangle(5, 5)
+        test_str = "[Rectangle] (9) 0/0 - 5/5"
+        self.assertEqual(r11.__str__(), test_str)
+

@@ -99,3 +99,53 @@ class Rectangle(Base):
         """Public method that returns the area value of the Rectangle instance
         """
         return (self.__width * self.__height)
+
+    def display(self):
+        """Prints in stdout the Rectangle instance with the character #"""
+        rect = ""
+
+        for _ in range(self.__y):
+            rect += '\n'
+        i = 0
+        while (i < self.__height):
+            rect += " " * self.__x
+            rect += "#" * self.__width
+            if i != self.__height - 1:
+                rect += '\n'
+            i += 1
+        print(rect)
+        return rect
+
+    def __str__(self):
+        """Returns a customized string"""
+        s_id = self.id
+        s_x = self.__x
+        s_y = self.__y
+        s_w = self.__width
+        s_h = self.__height
+        s_R = "Rectangle"
+        return "[{}] ({}) {}/{} - {}/{}".format(s_R, s_id, s_x, s_y, s_w, s_h)
+
+    def update(self, *args):
+        """Updates the values of the rectangle instance"""
+        len_args = len(args)
+        if len_args == 1:
+            self.id = args[0]
+        if len_args == 2:
+            self.id = args[0]
+            self.__width = args[1]
+        if len_args == 3:
+            self.id = args[0]
+            self.__width = args[1]
+            self.__height = args[2]
+        if len_args == 4:
+            self.id = args[0]
+            self.__width = args[1]
+            self.__height = args[2]
+            self.__x = args[3]
+        if len_args == 5:
+            self.id = args[0]
+            self.__width = args[1]
+            self.__height = args[2]
+            self.__x = args[3]
+            self.__y = args[4]

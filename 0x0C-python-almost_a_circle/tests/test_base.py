@@ -15,5 +15,5 @@ class TestBase(unittest.TestCase):
 
     def test_nb_objects(self):
         """Test for when value is passed"""
-        b1 = Base()
-        self.assertEqual(b1.id, 2)
+        b2 = Base()
+        self.assertEqual(b2.id, 2)
