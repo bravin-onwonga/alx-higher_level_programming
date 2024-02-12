@@ -107,7 +107,7 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """Returns a list of instances"""
-        if cls.__name__ is "Rectangle":
+        if cls.__name__ == "Rectangle":
             try:
                 with open("Rectangle.json", 'r') as my_file:
                     txt = ""
@@ -123,7 +123,7 @@ class Base:
             except FileNotFoundError:
                 return "[]"
 
-        if cls.__name__ is "Square":
+        if cls.__name__ == "Square":
             try:
                 with open("Square.json", 'r') as my_file:
                     txt = ""

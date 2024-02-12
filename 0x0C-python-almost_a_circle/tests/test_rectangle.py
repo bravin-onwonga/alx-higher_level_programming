@@ -76,44 +76,49 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r13.__str__(), "[Rectangle] (89) 4/5 - 2/3")
 
         """Update with an unwanted value"""
-        self.assertRaises(ValueError, lambda : r13.update(89, -2))
-        self.assertRaises(ValueError, lambda : r13.update(89, 2, -3))
-        self.assertRaises(ValueError, lambda : r13.update(89, 0))
-        self.assertRaises(ValueError, lambda : r13.update(89, 2, 0))
-        self.assertRaises(ValueError, lambda : r13.update(89, 2, 3, -4, 5))
-        self.assertRaises(ValueError, lambda : r13.update(89, -2, 3, 4, -5))
+        self.assertRaises(ValueError, lambda: r13.update(89, -2))
+        self.assertRaises(ValueError, lambda: r13.update(89, 2, -3))
+        self.assertRaises(ValueError, lambda: r13.update(89, 0))
+        self.assertRaises(ValueError, lambda: r13.update(89, 2, 0))
+        self.assertRaises(ValueError, lambda: r13.update(89, 2, 3, -4, 5))
+        self.assertRaises(ValueError, lambda: r13.update(89, -2, 3, 4, -5))
 
         """Update with an unwanted type"""
 
         """With string values"""
-        self.assertRaises(TypeError, lambda : r13.update(89, "Python"))
-        self.assertRaises(TypeError, lambda : r13.update(89, 2, "*args"))
-        self.assertRaises(TypeError, lambda : r13.update(89, 2, 3, "**kwargs", 5))
-        self.assertRaises(TypeError, lambda : r13.update(89, -2, 3, 4, "*magic_variables"))
+        self.assertRaises(TypeError, lambda: r13.update(89, "Python"))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, "*args"))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, "is", 5))
+        self.assertRaises(TypeError, lambda: r13.update(89, -2, 3, 4, "magic"))
 
         """With type tuples values"""
-        self.assertRaises(TypeError, lambda : r13.update(89, (9, 0)))
-        self.assertRaises(TypeError, lambda : r13.update(89, 2, (9, 0)))
-        self.assertRaises(TypeError, lambda : r13.update(89, 2, 3, (9, 0), 5))
-        self.assertRaises(TypeError, lambda : r13.update(89, -2, 3, 4, (9, 0)))
+        self.assertRaises(TypeError, lambda: r13.update(89, (9, 0)))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, (9, 0)))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, (9, 0), 5))
+        self.assertRaises(TypeError, lambda: r13.update(89, -2, 3, 4, (9, 0)))
 
         """With type bool values"""
-        self.assertRaises(TypeError, lambda : r13.update(89, True))
-        self.assertRaises(TypeError, lambda : r13.update(89, 2, False))
-        self.assertRaises(TypeError, lambda : r13.update(89, 2, 3, True, 5))
-        self.assertRaises(TypeError, lambda : r13.update(89, -2, 3, 4, False))
+        self.assertRaises(TypeError, lambda: r13.update(89, True))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, False))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, True, 5))
+        self.assertRaises(TypeError, lambda: r13.update(89, -2, 3, 4, False))
 
         """With type list values"""
-        self.assertRaises(TypeError, lambda : r13.update(89, [9, 0]))
-        self.assertRaises(TypeError, lambda : r13.update(89, 2, [9, 0]))
-        self.assertRaises(TypeError, lambda : r13.update(89, 2, 3, [9, 0], 5))
-        self.assertRaises(TypeError, lambda : r13.update(89, -2, 3, 4, [9, 0]))
+        self.assertRaises(TypeError, lambda: r13.update(89, [9, 0]))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, [9, 0]))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, [9, 0], 5))
+        self.assertRaises(TypeError, lambda: r13.update(89, -2, 3, 4, [9, 0]))
 
         """With type dict values"""
-        self.assertRaises(TypeError, lambda : r13.update(89, {"width": 8}))
-        self.assertRaises(TypeError, lambda : r13.update(89, 2, {"height": 8}))
-        self.assertRaises(TypeError, lambda : r13.update(89, 2, 3, {"x": 8}, 5))
-        self.assertRaises(TypeError, lambda : r13.update(89, -2, 3, 4, {"y": 8}))
+        self.assertRaises(TypeError, lambda: r13.update(89, {"width": 8}))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, {"height": 8}))
+        self.assertRaises(TypeError, lambda: r13.update(9, 2, 3, {"x": 8}))
+        self.assertRaises(TypeError, lambda: r13.update(9, 2, 3, 4, {'y': 8}))
 
-
-
+    def test_to_dictionary(self):
+        """Test for to_dictionary method that returns a dict rep of an obj
+        """
+        r14 = Rectangle(4, 6, 2, 1, 12)
+        my_dict = r14.to_dictionary()
+        res = {'x': 2, 'y': 1, 'id': 12, 'height': 6, "width": 4}
+        self.assertEqual(my_dict, res)
