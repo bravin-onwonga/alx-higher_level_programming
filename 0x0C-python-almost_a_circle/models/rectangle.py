@@ -72,7 +72,7 @@ class Rectangle(Base):
         """
         return self.__y
 
-    @width.setter
+    @y.setter
     def y(self, value):
         """Setter property for attr y
         """
@@ -151,7 +151,7 @@ class Rectangle(Base):
                 self.__x = args[3]
                 self.__y = args[4]
 
-        else:
+        elif kwargs:
             for k in kwargs:
                 if k == "id":
                     self.id = kwargs[k]
@@ -163,3 +163,7 @@ class Rectangle(Base):
                     self.__x = kwargs[k]
                 if k == "y":
                     self.__y = kwargs[k]
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of an instance"""
+        return ({'x': self.__x, 'y': self.__y, 'id': self.id, 'height': self.__height, 'width': self.__width})
