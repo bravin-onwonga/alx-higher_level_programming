@@ -36,6 +36,9 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """Setter property for attr width
+
+        Parameters:
+            value - value of attr width
         """
         self.integer_validator("width", value)
         self.__width = value
@@ -49,6 +52,9 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """Setter property for attr height
+
+        Parameters:
+            value - value of attr height
         """
         self.integer_validator("height", value)
         self.__height = value
@@ -62,6 +68,9 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """Setter property for attr x
+
+        Parameters:
+            value - value of attr x
         """
         self.integer_validator("x", value)
         self.__x = value
@@ -75,6 +84,9 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """Setter property for attr y
+
+        Parameters:
+            value - value of attr y
         """
         self.integer_validator("y", value)
         self.__y = value
@@ -127,7 +139,12 @@ class Rectangle(Base):
         return "[{}] ({}) {}/{} - {}/{}".format(s_R, s_id, s_x, s_y, s_w, s_h)
 
     def update(self, *args, **kwargs):
-        """Updates the values of the rectangle instance"""
+        """Updates the values of the rectangle instance
+
+        Parameter:
+            args - variable number of attr in a tuple
+            kwargs - variable number of attr with a key, value pair
+        """
         if (len(args) > 0):
             len_args = len(args)
             if len_args == 1:
@@ -166,4 +183,9 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Returns the dictionary representation of an instance"""
-        return ({'x': self.__x, 'y': self.__y, 'id': self.id, 'height': self.__height, 'width': self.__width})
+        s_x = self.__x
+        s_y = self.__y
+        s_id = self.id
+        s_h = self.__height
+        s_w = self.__width
+        return ({'x': s_x, 'y': s_y, 'id': s_id, 'height': s_h, 'width': s_w})
