@@ -3,7 +3,11 @@
 
 
 class Base:
-    """Base class inherited by other classes"""
+    """Base class inherited by other classes
+
+    Attr:
+        nb_objects - private class attribute
+    """
     __nb_objects = 0
 
     def __init__(self, id=None):
