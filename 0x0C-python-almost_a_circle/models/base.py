@@ -45,6 +45,7 @@ class Base:
         txt = "["
 
         len_list_objs = len([list_objs])
+        new_list = []
 
         i = 0
         while (i < len_list_objs):
@@ -57,14 +58,10 @@ class Base:
                 if key in content:
                     new_dict[key] = content[key]
 
-            hold_content = json.dumps(new_dict)
-
-            txt += hold_content
-            if i != (len_list_objs - 1):
-                txt += ", "
-            else:
-                txt += "]"
+            new_list.append(new_dict)
             i += 1
+
+        txt = cls.to_json_string(new_list)
 
         if "size" in new_dict:
             with open("Square.json", 'w') as my_file:
