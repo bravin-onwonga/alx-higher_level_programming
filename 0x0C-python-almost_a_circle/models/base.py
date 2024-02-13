@@ -70,6 +70,8 @@ class Base:
             json_string - string rep of a list
         """
         import json
+        if not json_string:
+            json_string = "[]"
         return json.loads(json_string)
 
     @classmethod
