@@ -159,7 +159,7 @@ class Base:
         text = ""
         while (k < i):
             curr_dict = new_list[k]
-            temp_list = ['id', 'size', 'width', 'height', 'x' ,'y']
+            temp_list = ['id', 'size', 'width', 'height', 'x', 'y']
             for key in temp_list:
                 if key in curr_dict:
                     text += str(curr_dict[key])
