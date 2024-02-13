@@ -41,10 +41,7 @@ class Base:
         Parameters:
             list_objs - a list of instances of class Rectangle
         """
-        import json
-        txt = "["
-
-        len_list_objs = len([list_objs])
+        len_list_objs = len(list_objs)
         new_list = []
 
         i = 0
