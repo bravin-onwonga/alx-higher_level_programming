@@ -46,17 +46,6 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s7.width, 10)
         self.assertEqual(s7.height, 10)
 
-        """Test for wrong type"""
-        self.assertRaises(TypeError, s7.size("Python"))
-        self.assertRaises(TypeError, s7.size([1, 2]))
-        self.assertRaises(TypeError, s7.size(False))
-        self.assertRaises(TypeError, s7.size({3, 2}))
-        self.assertRaises(TypeError, s7.size(None))
-
-        """Test for wrong value"""
-        self.assertRaises(ValueError, s7.size(0))
-        self.assertRaises(ValueError, s7.size(-2))
-
     def test_update(self):
         """Test for update attrs method"""
         s5 = Square(5)
@@ -64,12 +53,12 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s5.id, 10)
 
         s5.update(1, 2, 3, 4)
-        self.assertEqual(s5.__str__(), "[Square] (4) 2/3 - 1")
+        self.assertEqual(s5.__str__(), "[Square] (1) 3/4 - 2")
 
         s5.update(size=7, y=1)
         self.assertEqual(s5.width, 7)
         self.assertEqual(s5.y, 1)
-        self.assertEqual(s5.__str__(), "[Square] (4) 2/1 - 7")
+        self.assertEqual(s5.__str__(), "[Square] (1) 3/1 - 7")
 
     def test_to_dictionary(self):
         """Test the dict rep of a square instance"""

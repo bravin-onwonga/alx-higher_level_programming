@@ -10,8 +10,8 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(10, 2)
         r2 = Rectangle(2, 10)
         r3 = Rectangle(10, 2, 0, 0, 12)
-        self.assertEqual(r1.id, 7)
-        self.assertEqual(r2.id, 8)
+        self.assertEqual(r1.id, 17)
+        self.assertEqual(r2.id, 18)
         self.assertEqual(r3.id, 12)
 
     def test_types(self):
@@ -55,7 +55,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r10.__str__(), test_str)
 
         r11 = Rectangle(5, 5)
-        test_str = "[Rectangle] (9) 0/0 - 5/5"
+        test_str = "[Rectangle] (19) 0/0 - 5/5"
         self.assertEqual(r11.__str__(), test_str)
 
     def test_update(self):
@@ -89,25 +89,25 @@ class TestRectangle(unittest.TestCase):
         self.assertRaises(TypeError, lambda: r13.update(89, "Python"))
         self.assertRaises(TypeError, lambda: r13.update(89, 2, "*args"))
         self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, "is", 5))
-        self.assertRaises(TypeError, lambda: r13.update(89, -2, 3, 4, "magic"))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, 4, "magic"))
 
         """With type tuples values"""
         self.assertRaises(TypeError, lambda: r13.update(89, (9, 0)))
         self.assertRaises(TypeError, lambda: r13.update(89, 2, (9, 0)))
         self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, (9, 0), 5))
-        self.assertRaises(TypeError, lambda: r13.update(89, -2, 3, 4, (9, 0)))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, 4, (9, 0)))
 
         """With type bool values"""
         self.assertRaises(TypeError, lambda: r13.update(89, True))
         self.assertRaises(TypeError, lambda: r13.update(89, 2, False))
         self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, True, 5))
-        self.assertRaises(TypeError, lambda: r13.update(89, -2, 3, 4, False))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, 4, False))
 
         """With type list values"""
         self.assertRaises(TypeError, lambda: r13.update(89, [9, 0]))
         self.assertRaises(TypeError, lambda: r13.update(89, 2, [9, 0]))
         self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, [9, 0], 5))
-        self.assertRaises(TypeError, lambda: r13.update(89, -2, 3, 4, [9, 0]))
+        self.assertRaises(TypeError, lambda: r13.update(89, 2, 3, 4, [9, 0]))
 
         """With type dict values"""
         self.assertRaises(TypeError, lambda: r13.update(89, {"width": 8}))

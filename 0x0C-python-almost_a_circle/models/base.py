@@ -25,7 +25,7 @@ class Base:
             list_dictionaries - a list of dictionaries containing attr
         """
         import json
-        if not list_dictionaries or len(list_dictionaries) == 0:
+        if not list_dictionaries or len([list_dictionaries]) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -38,7 +38,8 @@ class Base:
         """
         import json
         txt = "["
-        len_list_objs = len(list_objs)
+
+        len_list_objs = len([list_objs])
 
         i = 0
         while (i < len_list_objs):

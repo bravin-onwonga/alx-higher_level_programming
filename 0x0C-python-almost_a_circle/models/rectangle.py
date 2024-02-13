@@ -151,18 +151,28 @@ class Rectangle(Base):
                 self.id = args[0]
             if len_args == 2:
                 self.id = args[0]
+                self.integer_validator("width", args[1])
                 self.__width = args[1]
             if len_args == 3:
                 self.id = args[0]
+                self.integer_validator("width", args[1])
+                self.integer_validator("height", args[2])
                 self.__width = args[1]
                 self.__height = args[2]
             if len_args == 4:
                 self.id = args[0]
+                self.integer_validator("width", args[1])
+                self.integer_validator("height", args[2])
+                self.integer_validator("x", args[3])
                 self.__width = args[1]
                 self.__height = args[2]
                 self.__x = args[3]
             if len_args == 5:
                 self.id = args[0]
+                self.integer_validator("width", args[1])
+                self.integer_validator("height", args[2])
+                self.integer_validator("x", args[3])
+                self.integer_validator("y", args[4])
                 self.__width = args[1]
                 self.__height = args[2]
                 self.__x = args[3]
@@ -173,12 +183,16 @@ class Rectangle(Base):
                 if k == "id":
                     self.id = kwargs[k]
                 if k == "width":
+                    self.integer_validator("width", kwargs[k])
                     self.__width = kwargs[k]
                 if k == "height":
+                    self.integer_validator("height", kwargs[k])
                     self.__height = kwargs[k]
                 if k == "x":
+                    self.integer_validator("x", kwargs[k])
                     self.__x = kwargs[k]
                 if k == "y":
+                    self.integer_validator("y", kwargs[k])
                     self.__y = kwargs[k]
 
     def to_dictionary(self):
