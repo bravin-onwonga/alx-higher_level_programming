@@ -49,15 +49,7 @@ class Base:
 
         i = 0
         while (i < len_list_objs):
-            content = list_objs[i].to_dictionary()
-
-            my_lst = ["y", "x", "id", "width", "height", "size"]
-            new_dict = {}
-            for n in range(0, len(my_lst)):
-                key = my_lst[n]
-                if key in content:
-                    new_dict[key] = content[key]
-
+            new_dict = list_objs[i].to_dictionary()
             new_list.append(new_dict)
             i += 1
 
