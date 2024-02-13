@@ -66,3 +66,6 @@ class TestSquare(unittest.TestCase):
         my_dict = s6.to_dictionary()
         res_dict = {'id': 17, 'x': 2, 'size': 9, 'y': 3}
         self.assertEqual(my_dict, res_dict)
+
+if __name__ == "__main__":
+    unittest.main()
