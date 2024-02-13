@@ -118,7 +118,7 @@ class Base:
                         i += 1
                     return (new_lst)
             except FileNotFoundError:
-                return "[]"
+                return []
 
         if cls.__name__ == "Square":
             try:
@@ -134,4 +134,4 @@ class Base:
                         i += 1
                     return (new_lst)
             except FileNotFoundError:
-                return "[]"
+                return []
