@@ -39,7 +39,7 @@ class Base:
         """Writes the JSON string representation of list_objs to a file
 
         Parameters:
-            list_objs - a list of instances of class Rectangle
+            list_objs - a list of instances of class Rectangle or Square
         """
         if list_objs is None:
             list_objs = []
@@ -131,6 +131,90 @@ class Base:
                     new_lst = []
                     while (i < len(my_lst)):
                         new_lst.append(cls.create(**my_lst[i]))
+                        i += 1
+                    return (new_lst)
+            except FileNotFoundError:
+                return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Writes the csv string representation of list_objs to a file
+
+        Parameters:
+            list_objs - a list of instances of class Rectangle or Square
+        """
+        if list_objs is None:
+            list_objs = []
+        len_list_objs = len(list_objs)
+        new_list = []
+        new_dict = {}
+
+        i = 0
+        while (i < len_list_objs):
+            new_dict = list_objs[i].to_dictionary()
+            new_list.append(new_dict)
+            i += 1
+
+        k = 0
+        text = ""
+        while (k < i):
+            curr_dict = new_list[k]
+            temp_list = ['id', 'size', 'width', 'height', 'x' ,'y']
+            for key in temp_list:
+                if key in curr_dict:
+                    text += str(curr_dict[key])
+                    if temp_list.index(key) != 5:
+                        text += ", "
+                    else:
+                        text += '\n'
+            k += 1
+
+        if cls.__name__ == "Square":
+            with open("Square.csv", 'w') as my_file:
+                my_file.write(text)
+        if cls.__name__ == "Rectangle":
+            with open("Rectangle.csv", 'w') as my_file:
+                my_file.write(text)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Returns a list of instances creates from a csv file
+        otherwise returns an empty list"""
+        if cls.__name__ == "Rectangle":
+            try:
+                with open("Rectangle.csv", 'r') as my_file:
+                    my_lst = []
+                    for line in my_file:
+                        my_lst.append(line.split(","))
+
+                    new_lst = []
+                    lst_keys = ['id', 'width', 'height', 'x', 'y']
+                    i = 0
+                    while (i < len(my_lst)):
+                        new_dict = {}
+                        for n in range(0, len(lst_keys)):
+                            new_dict[lst_keys[n]] = int(my_lst[i][n])
+                        new_lst.append(cls.create(**new_dict))
+                        i += 1
+                    return (new_lst)
+            except FileNotFoundError:
+                return []
+
+        if cls.__name__ == "Square":
+            try:
+                with open("Square.csv", 'r') as my_file:
+                    my_lst = []
+                    for line in my_file:
+                        my_lst.append(line.split(","))
+
+                    new_lst = []
+                    lst_keys = ['id', 'size', 'x', 'y']
+                    i = 0
+                    while (i < len(my_lst)):
+                        new_dict = {}
+                        for n in range(0, len(lst_keys)):
+                            new_dict[lst_keys[n]] = int(my_lst[i][n])
+                        new_lst.append(cls.create(**new_dict))
                         i += 1
                     return (new_lst)
             except FileNotFoundError:
