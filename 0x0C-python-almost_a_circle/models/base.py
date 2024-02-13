@@ -3,6 +3,7 @@
 
 
 class Base:
+    """Base class inherited by other classes"""
     __nb_objects = 0
 
     def __init__(self, id=None):
