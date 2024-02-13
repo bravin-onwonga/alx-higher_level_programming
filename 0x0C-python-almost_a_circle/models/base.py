@@ -43,6 +43,7 @@ class Base:
         """
         len_list_objs = len(list_objs)
         new_list = []
+        new_dict = {}
 
         i = 0
         while (i < len_list_objs):
