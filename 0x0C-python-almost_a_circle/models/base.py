@@ -41,6 +41,8 @@ class Base:
         Parameters:
             list_objs - a list of instances of class Rectangle
         """
+        if list_objs is None:
+            list_objs = []
         len_list_objs = len(list_objs)
         new_list = []
         new_dict = {}
