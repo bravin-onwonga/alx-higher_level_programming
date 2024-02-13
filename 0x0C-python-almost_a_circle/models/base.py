@@ -55,10 +55,10 @@ class Base:
 
         txt = cls.to_json_string(new_list)
 
-        if "size" in new_dict:
+        if cls.__name__ == "Square":
             with open("Square.json", 'w') as my_file:
                 my_file.write(txt)
-        else:
+        if cls.__name__ == "Rectangle":
             with open("Rectangle.json", 'w') as my_file:
                 my_file.write(txt)
 
