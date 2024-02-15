@@ -15,7 +15,7 @@ class TestSquare(unittest.TestCase):
 
     def test_size_type(self):
         """Test with not-int values"""
-        self.assertRaises(TypeError, lambda: Square("School"))
+        self.assertRaises(TypeError, lambda: Square("1"))
         self.assertRaises(TypeError, lambda: Square({1, 2}))
         self.assertRaises(TypeError, lambda: Square(True))
         self.assertRaises(TypeError, lambda: Square([1, 2]))

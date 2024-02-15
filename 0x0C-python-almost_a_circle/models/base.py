@@ -102,41 +102,6 @@ class Base:
             return rect
 
     @classmethod
-    def load_from_file(cls):
-        """Returns a list of instances"""
-        if cls.__name__ == "Rectangle":
-            try:
-                with open("Rectangle.json", 'r') as my_file:
-                    txt = ""
-                    for line in my_file:
-                        txt += line
-                    my_lst = cls.from_json_string(txt)
-                    i = 0
-                    new_lst = []
-                    while (i < len(my_lst)):
-                        new_lst.append(cls.create(**my_lst[i]))
-                        i += 1
-                    return (new_lst)
-            except FileNotFoundError:
-                return []
-
-        if cls.__name__ == "Square":
-            try:
-                with open("Square.json", 'r') as my_file:
-                    txt = ""
-                    for line in my_file:
-                        txt += line
-                    my_lst = cls.from_json_string(txt)
-                    i = 0
-                    new_lst = []
-                    while (i < len(my_lst)):
-                        new_lst.append(cls.create(**my_lst[i]))
-                        i += 1
-                    return (new_lst)
-            except FileNotFoundError:
-                return []
-
-    @classmethod
     def save_to_file_csv(cls, list_objs):
         """Writes the csv string representation of list_objs to a file
 
@@ -175,6 +140,41 @@ class Base:
         if cls.__name__ == "Rectangle":
             with open("Rectangle.csv", 'w') as my_file:
                 my_file.write(text)
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances"""
+        if cls.__name__ == "Rectangle":
+            try:
+                with open("Rectangle.json", 'r') as my_file:
+                    txt = ""
+                    for line in my_file:
+                        txt += line
+                    my_lst = cls.from_json_string(txt)
+                    i = 0
+                    new_lst = []
+                    while (i < len(my_lst)):
+                        new_lst.append(cls.create(**my_lst[i]))
+                        i += 1
+                    return (new_lst)
+            except FileNotFoundError:
+                return []
+
+        if cls.__name__ == "Square":
+            try:
+                with open("Square.json", 'r') as my_file:
+                    txt = ""
+                    for line in my_file:
+                        txt += line
+                    my_lst = cls.from_json_string(txt)
+                    i = 0
+                    new_lst = []
+                    while (i < len(my_lst)):
+                        new_lst.append(cls.create(**my_lst[i]))
+                        i += 1
+                    return (new_lst)
+            except FileNotFoundError:
+                return []
 
     @classmethod
     def load_from_file_csv(cls):

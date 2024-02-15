@@ -228,5 +228,46 @@ class TestRectangle(unittest.TestCase):
         r19 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
         self.assertEqual(r19.__str__(), "[Rectangle] (89) 3/4 - 1/2")
 
+    def test_save_to_file(self):
+        """Test for save_to_file method"""
+        import os
+
+        rect25 = Rectangle(3, 2, 1)
+        rect26 = Rectangle(4, 5, 2)
+
+        Rectangle.save_to_file([rect25, rect26])
+
+        self.assertTrue(os.path.exists("Rectangle.json"))
+
+        with open("Rectangle.json", 'r') as my_file:
+            data = my_file.read()
+
+        excepted_data = ('[{"x": 1, "y": 0, "id": 29, "height": 2, "width": 3}, '
+                         '{"x": 2, "y": 0, "id": 30, "height": 5, "width": 4}]')
+
+        self.assertEqual(excepted_data, data)
+
+        """Test for None"""
+        Rectangle.save_to_file(None)
+
+        self.assertTrue(os.path.exists("Rectangle.json"))
+
+        with open("Rectangle.json", 'r') as my_file:
+            data = my_file.read()
+
+        self.assertEqual(data, "[]")
+
+        """Test for empty dict"""
+        Rectangle.save_to_file([])
+
+        self.assertTrue(os.path.exists("Rectangle.json"))
+
+        with open("Rectangle.json", 'r') as my_file:
+            data = my_file.read()
+
+        self.assertEqual(data, "[]")
+
+        os.remove("Rectangle.json")
+
 if __name__ == "__main__":
     unittest.main()
