@@ -2,7 +2,7 @@
 """Unittest for models.sqquaremodule"""
 import unittest
 from models.square import Square
-from models.rectangle import Rectangle
+import os
 
 
 class TestSquare(unittest.TestCase):
@@ -10,8 +10,12 @@ class TestSquare(unittest.TestCase):
         """test the instantiation method for square obj"""
         s1 = Square(5)
         self.assertEqual(s1.width, 5)
-        s2 = Square(3, 1, 3, 20)
-        self.assertEqual(s2.id, 20)
+        s2 = Square(1, 2)
+        self.assertEqual(s1.id, s2.id -1)
+        s3 = Square(1, 2, 3)
+        self.assertEqual(s3.height, 1)
+        s4 = Square(3, 1, 3, 20)
+        self.assertEqual(s4.id, 20)
 
     def test_size_type(self):
         """Test with not-int values"""
@@ -69,8 +73,6 @@ class TestSquare(unittest.TestCase):
 
     def test_save_to_file(self):
         """Test for save_to_file method"""
-        import os
-
         sq25 = Square(3, 2, 1, 41)
         sq26 = Square(4, 5, 2, 17)
 
@@ -86,6 +88,7 @@ class TestSquare(unittest.TestCase):
 
         self.assertEqual(data, excepted_data)
 
+    def test_save_to_file_None(self):
         """Test for None"""
         Square.save_to_file(None)
 
