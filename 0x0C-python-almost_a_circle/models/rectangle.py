@@ -115,19 +115,12 @@ class Rectangle(Base):
 
     def display(self):
         """Prints in stdout the Rectangle instance with the character #"""
-        rect = ""
-
         for _ in range(self.__y):
-            rect += '\n'
-        i = 0
-        while (i < self.__height):
-            rect += " " * self.__x
-            rect += "#" * self.__width
-            if i != self.__height - 1:
-                rect += '\n'
-            i += 1
-        print(rect)
-        return rect
+            print()
+
+        for _ in range(0, self.__height):
+            print(" " * self.__x, end="")
+            print("#" * self.__width)
 
     def __str__(self):
         """Returns a customized string"""

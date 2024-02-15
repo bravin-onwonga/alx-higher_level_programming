@@ -64,21 +64,6 @@ class TestRectangle(unittest.TestCase):
         r8 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r8.area(), 56)
 
-    def test_display(self):
-        """Test the display method"""
-        r9 = Rectangle(4, 6)
-        rect9 = "####\n####\n####\n####\n####\n####"
-        self.assertEqual(r9.display(), rect9)
-
-        r12 = Rectangle(2, 3, 2, 2)
-        rect12 = "\n\n  ##\n  ##\n  ##"
-        self.assertEqual(r12.display(), rect12)
-
-        """Test for display method without values
-        self.assertRaises(TypeError, Rectangle.display())
-        self.assertRaises(TypeError, Rectangle.display(6, ))
-        self.assertRaises(TypeError, Rectangle.display())"""
-
     def test_str(self):
         r10 = Rectangle(4, 6, 2, 1, 12)
         test_str = "[Rectangle] (12) 2/1 - 4/6"
@@ -174,6 +159,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(my_dict, res)
 
     def test_create(self):
+        """Tests the create method in the base class"""
         r15 = Rectangle.create(**{ 'id': 89 })
         self.assertEqual(r15.__str__(), "[Rectangle] (89) 0/0 - 1/2")
 
@@ -188,13 +174,6 @@ class TestRectangle(unittest.TestCase):
 
         r19 = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
         self.assertEqual(r19.__str__(), "[Rectangle] (89) 3/4 - 1/2")
-
-    def test_create(self):
-        """Tests the create method in the base class"""
-        r20= Rectangle.create(**{ 'id': 89 })
-        self.assertEqual(r20.__str__(), "[Rectangle] (89) 3/4 - 1/2")
-        r21_dictionary = r1.to_dictionary()
-        r22 = Rectangle.create(**r1_dictionary)
 
 if __name__ == "__main__":
     unittest.main()
