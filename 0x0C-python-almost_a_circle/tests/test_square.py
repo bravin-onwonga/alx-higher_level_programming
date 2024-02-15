@@ -88,16 +88,17 @@ class TestSquare(unittest.TestCase):
 
         self.assertEqual(data, excepted_data)
 
-        Square.save_to_file([Square(1)])
+        sq40 = Square(1)
+        Square.save_to_file([sq40])
 
         self.assertTrue(os.path.exists("Square.json"))
 
         with open("Square.json", 'r') as my_file:
             data = my_file.read()
 
-        excepted_data = ('[[{"id": 1, "x": 0, "size": 1, "y": 0}]')
+        expected_data = f'[{{"id": {sq40.id}, "x": 0, "size": 1, "y": 0}}]'
 
-        self.assertEqual(data, excepted_data)
+        self.assertEqual(data, expected_data)
 
     def test_save_to_file_None(self):
         """Test for None"""
