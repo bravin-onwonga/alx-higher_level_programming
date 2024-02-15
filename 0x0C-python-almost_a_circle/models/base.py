@@ -88,16 +88,16 @@ class Base:
         y = 0
         size = 1
 
-        if "size" in dictionary:
+        if cls.__name__ == "Square":
             square_obj = cls(size, x=x, y=y, id=id)
-        else:
+        if cls.__name__ == "Rectangle":
             rect = cls(width=width, height=height, x=x, y=y, id=id)
 
-        if "size" in dictionary:
+        if cls.__name__ == "Square":
             square_obj.update(**dictionary)
             return square_obj
 
-        else:
+        if cls.__name__ == "Rectangle":
             rect.update(**dictionary)
             return rect
 

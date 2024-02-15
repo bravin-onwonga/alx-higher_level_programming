@@ -71,6 +71,20 @@ class TestSquare(unittest.TestCase):
         res_dict = {'id': 17, 'x': 2, 'size': 9, 'y': 3}
         self.assertEqual(my_dict, res_dict)
 
+    def test_create(self):
+        """Tests the create method in the base class"""
+        sq41 = Square.create(**{ 'id': 89 })
+        self.assertEqual(sq41.__str__(), "[Square] (89) 0/0 - 1")
+
+        sq42 = Square.create(**{ 'id': 89, 'size': 1 })
+        self.assertEqual(sq42.__str__(), "[Square] (89) 0/0 - 1")
+
+        sq43 = Square.create(**{ 'id': 89, 'size': 1, 'x': 2 })
+        self.assertEqual(sq43.__str__(), "[Square] (89) 2/0 - 1")
+
+        sq44 = Square.create(**{ 'id': 89, 'size': 1, 'x': 2, 'y': 3 })
+        self.assertEqual(sq44.__str__(), "[Square] (89) 2/3 - 1")
+
     def test_save_to_file(self):
         """Test for save_to_file method"""
         sq25 = Square(3, 2, 1, 41)
