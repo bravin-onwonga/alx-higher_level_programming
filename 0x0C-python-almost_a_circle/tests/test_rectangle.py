@@ -267,8 +267,6 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(data, "[]")
 
-        os.remove("Rectangle.json")
-
     def test_load_from_file(self):
         """Test the load_from_file method"""
         r1 = Rectangle(10, 7, 2, 8)
