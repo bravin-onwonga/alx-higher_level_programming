@@ -64,7 +64,59 @@ class TestRectangle(unittest.TestCase):
         r8 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r8.area(), 56)
 
+    def test_display(self):
+        """Test the display method"""
+        r20 = Rectangle(3, 2)
+
+        import io
+        from contextlib import redirect_stdout
+        with io.StringIO() as captured_output:
+            with redirect_stdout(captured_output):
+                r20.display()
+
+            printed_output = captured_output.getvalue()
+
+        expected_display = (
+            "###\n"
+            "###\n"
+        )
+
+        self.assertEqual(printed_output, expected_display)
+
+        """Test without y"""
+        r21 = Rectangle(3, 2, 1)
+        with io.StringIO() as captured_output:
+            with redirect_stdout(captured_output):
+                r21.display()
+
+            r21_output = captured_output.getvalue()
+
+        r21_expected_display = (
+            " ###\n"
+            " ###\n"
+        )
+
+        self.assertEqual(r21_output, r21_expected_display)
+
+        """Test with x and y"""
+        r22 = Rectangle(3, 2, 1, 2)
+        with io.StringIO() as captured_output:
+            with redirect_stdout(captured_output):
+                r22.display()
+
+            r22_output = captured_output.getvalue()
+
+        r22_expected_display = (
+            "\n"
+            "\n"
+            " ###\n"
+            " ###\n"
+        )
+
+        self.assertEqual(r22_output, r22_expected_display)
+
     def test_str(self):
+        """Test the __str__ method"""
         r10 = Rectangle(4, 6, 2, 1, 12)
         test_str = "[Rectangle] (12) 2/1 - 4/6"
         self.assertEqual(r10.__str__(), test_str)
@@ -75,6 +127,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r11.__str__(), test_str)
 
     def test_update(self):
+        """Test the update method"""
         r13 = Rectangle(10, 10, 10, 10)
 
         """Testing *args"""
