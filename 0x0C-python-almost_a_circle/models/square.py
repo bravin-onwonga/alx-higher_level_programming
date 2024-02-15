@@ -56,7 +56,8 @@ class Square(Rectangle):
                 super().update(id=args[0], width=val, height=val, x=args[2])
             if len_args == 4:
                 super().update(
-                    id=args[0], width=args[1], height=args[1], x=args[2], y=args[3]
+                    id=args[0], width=args[1], height=args[1], x=args[2],
+                    y=args[3]
                 )
 
         elif kwargs:
