@@ -232,8 +232,8 @@ class TestRectangle(unittest.TestCase):
         """Test for save_to_file method"""
         import os
 
-        rect25 = Rectangle(3, 2, 1)
-        rect26 = Rectangle(4, 5, 2)
+        rect25 = Rectangle(3, 2, 1, 2, 41)
+        rect26 = Rectangle(4, 5, 2, 6, 17)
 
         Rectangle.save_to_file([rect25, rect26])
 
@@ -242,10 +242,10 @@ class TestRectangle(unittest.TestCase):
         with open("Rectangle.json", 'r') as my_file:
             data = my_file.read()
 
-        excepted_data = ('[{"x": 1, "y": 0, "id": 29, "height": 2, "width": 3}, '
-                         '{"x": 2, "y": 0, "id": 30, "height": 5, "width": 4}]')
+        excepted_data = ('[{"x": 1, "y": 2, "id": 41, "height": 2, "width": 3}, '
+                         '{"x": 2, "y": 6, "id": 17, "height": 5, "width": 4}]')
 
-        self.assertEqual(excepted_data, data)
+        self.assertEqual(data, excepted_data)
 
         """Test for None"""
         Rectangle.save_to_file(None)
@@ -268,6 +268,20 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(data, "[]")
 
         os.remove("Rectangle.json")
+
+    def test_load_from_file(self):
+        """Test the load_from_file method"""
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+
+        Rectangle.save_to_file(list_rectangles_input)
+
+        list_rectangles_output  = Rectangle.load_from_file()
+
+        for prev_rect, file_rect in zip(list_rectangles_input, list_rectangles_output ):
+            self.assertEqual(prev_rect.to_dictionary(), file_rect.to_dictionary())
+            self.assertFalse(prev_rect.to_dictionary() is file_rect.to_dictionary())
 
 if __name__ == "__main__":
     unittest.main()

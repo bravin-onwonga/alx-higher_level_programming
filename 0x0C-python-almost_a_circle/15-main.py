@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """ 15-main """
-from models.rectangle import Rectangle
+from models.square import Square
 
 if __name__ == "__main__":
 
-    r1 = Rectangle(3, 2, 1)
-    r2 = Rectangle(4, 5, 2)
-    Rectangle.save_to_file([r1, r2])
+    sq25 = Square(3, 2, 1, 41)
+    sq26 = Square(4, 5, 2, 17)
+    Square.save_to_file([sq25, sq26])
 
-    with open("Rectangle.json", "r") as file:
+    with open("Square.json", "r") as file:
         print(file.read())

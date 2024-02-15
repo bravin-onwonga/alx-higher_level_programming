@@ -67,5 +67,61 @@ class TestSquare(unittest.TestCase):
         res_dict = {'id': 17, 'x': 2, 'size': 9, 'y': 3}
         self.assertEqual(my_dict, res_dict)
 
+    def test_save_to_file(self):
+        """Test for save_to_file method"""
+        import os
+
+        sq25 = Square(3, 2, 1, 41)
+        sq26 = Square(4, 5, 2, 17)
+
+        Square.save_to_file([sq25, sq26])
+
+        self.assertTrue(os.path.exists("Square.json"))
+
+        with open("Square.json", 'r') as my_file:
+            data = my_file.read()
+
+        excepted_data = ('[{"id": 41, "x": 2, "size": 3, "y": 1}, '
+                         '{"id": 17, "x": 5, "size": 4, "y": 2}]')
+
+        self.assertEqual(data, excepted_data)
+
+        """Test for None"""
+        Square.save_to_file(None)
+
+        self.assertTrue(os.path.exists("Square.json"))
+
+        with open("Square.json", 'r') as my_file:
+            data = my_file.read()
+
+        self.assertEqual(data, "[]")
+
+        """Test for empty dict"""
+        Square.save_to_file([])
+
+        self.assertTrue(os.path.exists("Square.json"))
+
+        with open("Square.json", 'r') as my_file:
+            data = my_file.read()
+
+        self.assertEqual(data, "[]")
+
+        os.remove("Square.json")
+
+    def test_load_from_file(self):
+        """Test the load_from_file method"""
+
+        s1 = Square(5)
+        s2 = Square(7, 9, 1)
+        list_squares_input = [s1, s2]
+
+        Square.save_to_file(list_squares_input)
+
+        list_squares_output = Square.load_from_file()
+
+        for prev_square, file_square in zip(list_squares_input, list_squares_output):
+            self.assertEqual(prev_square.to_dictionary(), file_square.to_dictionary())
+            self.assertFalse(prev_square.to_dictionary() is file_square.to_dictionary())
+
 if __name__ == "__main__":
     unittest.main()
