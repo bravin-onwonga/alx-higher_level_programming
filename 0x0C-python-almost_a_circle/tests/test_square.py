@@ -99,6 +99,7 @@ class TestSquare(unittest.TestCase):
 
         self.assertEqual(data, "[]")
 
+    def test_save_to_file_empty(self):
         """Test for empty dict"""
         Square.save_to_file([])
 
