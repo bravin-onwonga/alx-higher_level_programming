@@ -18,11 +18,9 @@ class Square(Rectangle):
 
     def __str__(self):
         """Overrides the str method in parent class"""
-        s_id = self.id
-        s_x = self.x
-        s_y = self.y
-        s_w = self.size
-        return "[Square] ({}) {}/{} - {}".format(s_id, s_x, s_y, s_w)
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.size
+        )
 
     @property
     def size(self):
@@ -57,11 +55,9 @@ class Square(Rectangle):
                 val = args[1]
                 super().update(id=args[0], width=val, height=val, x=args[2])
             if len_args == 4:
-                val = args[1]
-                v_id = args[0]
-                v_x = args[2]
-                v_y = args[3]
-                super().update(id=v_id, width=val, height=val, x=v_x, y=v_y)
+                super().update(
+                    id=args[0], width=args[1], height=args[1], x=args[2], y=args[3]
+                )
 
         elif kwargs:
             for k in kwargs:

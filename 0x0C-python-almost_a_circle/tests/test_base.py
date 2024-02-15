@@ -13,8 +13,8 @@ class TestBase(unittest.TestCase):
         b1 = Base()
         b2 = Base()
         self.assertEqual(b1.id, b2.id - 1)
-        b3 = Base(9)
-        self.assertEqual(b3.id, 9)
+        b3 = Base(89)
+        self.assertEqual(b3.id, 89)
 
     def test_id_as_None(self):
         """Test when None is passed as id"""

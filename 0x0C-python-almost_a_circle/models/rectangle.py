@@ -131,13 +131,9 @@ class Rectangle(Base):
 
     def __str__(self):
         """Returns a customized string"""
-        s_id = self.id
-        s_x = self.__x
-        s_y = self.__y
-        s_w = self.__width
-        s_h = self.__height
-        s_R = "Rectangle"
-        return "[{}] ({}) {}/{} - {}/{}".format(s_R, s_id, s_x, s_y, s_w, s_h)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height
+        )
 
     def update(self, *args, **kwargs):
         """Updates the values of the rectangle instance
@@ -198,9 +194,9 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Returns the dictionary representation of an instance"""
-        s_x = self.__x
-        s_y = self.__y
-        s_id = self.id
-        s_h = self.__height
-        s_w = self.__width
-        return ({'x': s_x, 'y': s_y, 'id': s_id, 'height': s_h, 'width': s_w})
+        return ({'x': self.__x,
+                 'y': self.__y,
+                 'id': self.id,
+                 'height': self.__height,
+                 'width': self.__width
+                 })
