@@ -105,10 +105,8 @@ class TestSquare(unittest.TestCase):
 
         self.assertTrue(os.path.exists("Square.json"))
 
-        with open("Square.json", 'r') as my_file:
-            data = my_file.read()
-
-        self.assertEqual(data, "[]")
+        with open("Square.json", "r") as my_file:
+            self.assertEqual("[]", my_file.read())
 
         os.remove("Square.json")
 
