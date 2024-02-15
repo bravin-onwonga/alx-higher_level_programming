@@ -2,6 +2,7 @@
 """Unittest for models.rectangle module"""
 import unittest
 from models.rectangle import Rectangle
+import os
 
 
 class TestRectangle(unittest.TestCase):
@@ -282,6 +283,12 @@ class TestRectangle(unittest.TestCase):
 
     def test_load_from_file(self):
         """Test the load_from_file method"""
+
+        if (os.path.exists("Rectangle.json")):
+            os.remove("Rectangle.json")
+
+        self.assertEqual(Rectangle.load_from_file(), [])
+
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         list_rectangles_input = [r1, r2]

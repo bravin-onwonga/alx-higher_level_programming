@@ -127,6 +127,11 @@ class TestSquare(unittest.TestCase):
     def test_load_from_file(self):
         """Test the load_from_file method"""
 
+        if (os.path.exists("Square.json")):
+            os.remove("Square.json")
+
+        self.assertEqual(Square.load_from_file(), [])
+
         s1 = Square(5)
         s2 = Square(7, 9, 1)
         list_squares_input = [s1, s2]
