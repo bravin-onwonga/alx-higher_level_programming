@@ -257,6 +257,19 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(data, "[]")
 
+        """Test with only width and height"""
+        rect45 = Rectangle(1, 2)
+        Rectangle.save_to_file([rect45])
+
+        self.assertTrue(os.path.exists("Rectangle.json"))
+
+        with open("Rectangle.json", 'r') as my_file:
+            data = my_file.read()
+
+        rect45_data = f'[{{"x": 0, "y": 0, "id": {rect45.id}, "height": 2, "width": 1}}]'
+
+        self.assertEqual(data, rect45_data)
+
         """Test for empty dict"""
         Rectangle.save_to_file([])
 
