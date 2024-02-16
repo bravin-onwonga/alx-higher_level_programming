@@ -110,7 +110,28 @@ class TestSquare(unittest.TestCase):
             data = my_file.read()
 
         sq_dict = json.loads(data)
+
         self.assertEqual(sq_dict[0]['size'], 1)
+
+        Square.save_to_file([Square(1, 2)])
+
+        self.assertTrue(os.path.exists("Square.json"))
+
+        with open("Square.json", 'r') as my_file:
+            data = my_file.read()
+
+        sq_dict = json.loads(data)
+        self.assertEqual(sq_dict[0]['x'], 2)
+
+        Square.save_to_file([Square(1, 2, 4)])
+
+        self.assertTrue(os.path.exists("Square.json"))
+
+        with open("Square.json", 'r') as my_file:
+            data = my_file.read()
+
+        sq_dict = json.loads(data)
+        self.assertEqual(sq_dict[0]['y'], 4)
 
     def test_save_to_file_None(self):
         """Test for None"""
