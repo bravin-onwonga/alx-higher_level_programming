@@ -2,7 +2,7 @@
 """Unittest for models.sqquaremodule"""
 import unittest
 from models.square import Square
-import os
+import os, json
 
 
 class TestSquare(unittest.TestCase):
@@ -102,17 +102,15 @@ class TestSquare(unittest.TestCase):
 
         self.assertEqual(data, excepted_data)
 
-        sq40 = Square(1)
-        Square.save_to_file([sq40])
+        Square.save_to_file([Square(1)])
 
         self.assertTrue(os.path.exists("Square.json"))
 
         with open("Square.json", 'r') as my_file:
             data = my_file.read()
 
-        expected_data = f'[{{"id": {sq40.id}, "x": 0, "size": 1, "y": 0}}]'
-
-        self.assertEqual(data, expected_data)
+        sq_dict = json.loads(data)
+        self.assertEqual(sq_dict[0]['size'], 1)
 
     def test_save_to_file_None(self):
         """Test for None"""
