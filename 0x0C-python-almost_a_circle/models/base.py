@@ -108,31 +108,33 @@ class Base:
         Parameters:
             list_objs - a list of instances of class Rectangle or Square
         """
-        if list_objs is None:
-            list_objs = []
-        len_list_objs = len(list_objs)
-        new_list = []
-        new_dict = {}
+        if list_objs is None or list_objs == []:
+            text ="[]"
 
-        i = 0
-        while (i < len_list_objs):
-            new_dict = list_objs[i].to_dictionary()
-            new_list.append(new_dict)
-            i += 1
+        else:
+            len_list_objs = len(list_objs)
+            new_list = []
+            new_dict = {}
 
-        k = 0
-        text = ""
-        while (k < i):
-            curr_dict = new_list[k]
-            temp_list = ['id', 'size', 'width', 'height', 'x', 'y']
-            for key in temp_list:
-                if key in curr_dict:
-                    text += str(curr_dict[key])
-                    if temp_list.index(key) != 5:
-                        text += ", "
-                    else:
-                        text += '\n'
-            k += 1
+            i = 0
+            while (i < len_list_objs):
+                new_dict = list_objs[i].to_dictionary()
+                new_list.append(new_dict)
+                i += 1
+
+            k = 0
+            text = ""
+            while (k < i):
+                curr_dict = new_list[k]
+                temp_list = ['id', 'size', 'width', 'height', 'x', 'y']
+                for key in temp_list:
+                    if key in curr_dict:
+                        text += str(curr_dict[key])
+                        if temp_list.index(key) != 5:
+                            text += ", "
+                        else:
+                            text += '\n'
+                k += 1
 
         if cls.__name__ == "Square":
             with open("Square.csv", 'w') as my_file:

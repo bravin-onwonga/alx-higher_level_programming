@@ -155,8 +155,6 @@ class TestSquare(unittest.TestCase):
 
         self.assertEqual(data, "[]")
 
-        os.remove("Square.json")
-
         """Test for no parames"""
         with self.assertRaises(TypeError):
             Square.save_to_file()
