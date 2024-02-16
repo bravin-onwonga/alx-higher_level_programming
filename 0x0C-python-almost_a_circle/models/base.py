@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module models.base"""
+import turtle
+import random
 
 
 class Base:
@@ -109,7 +111,7 @@ class Base:
             list_objs - a list of instances of class Rectangle or Square
         """
         if list_objs is None or list_objs == []:
-            text ="[]"
+            text = "[]"
 
         else:
             len_list_objs = len(list_objs)
@@ -221,3 +223,37 @@ class Base:
                     return (new_lst)
             except FileNotFoundError:
                 return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Uses Turtle Graphics Module to draw squares and rectangles"""
+        colors = ["red", "blue", "green", "yellow", "orange", "purple"]
+        for rect in list_rectangles:
+            turtle.penup()
+            turtle.setpos(rect.x, rect.y)
+            colour = random.choice(colors)
+            turtle.pencolor(colour)
+            turtle.pendown()
+            turtle.speed(3)
+            turtle.forward(rect.width)
+            turtle.right(90)
+            turtle.forward(rect.height)
+            turtle.right(90)
+            turtle.forward(rect.width)
+            turtle.right(90)
+            turtle.forward(rect.height)
+            turtle.right(90)
+            turtle.penup()
+
+        for sq in list_squares:
+            turtle.setpos(sq.x, sq.y)
+            colour = random.choice(colors)
+            turtle.pencolor(colour)
+            turtle.pendown()
+
+            for _ in range(4):
+                turtle.forward(sq.size)
+                turtle.right(90)
+            turtle.penup()
+
+        turtle.done()
