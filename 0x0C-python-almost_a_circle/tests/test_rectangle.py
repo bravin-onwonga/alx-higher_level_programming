@@ -258,6 +258,10 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(data, "[]")
 
+        """Test for no parames"""
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file()
+
         """Test with only width and height"""
         rect45 = Rectangle(1, 2)
         Rectangle.save_to_file([rect45])
