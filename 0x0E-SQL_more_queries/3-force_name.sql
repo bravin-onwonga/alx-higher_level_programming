@@ -2,5 +2,5 @@
 
 CREATE TABLE IF NOT EXISTS force_name (
 	id INT,
-	NAME (VARCHAR(256))
+	name VARCHAR(256)
 );
