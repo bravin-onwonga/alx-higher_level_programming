@@ -6,7 +6,7 @@ USE hbtn_0d_usa;
 
 -- Create table cities
 CREATE TABLE IF NOT EXISTS cities (
-	id INT UNIQUE NOT NULL AUTO_INCREMENT,
+	id INT AUTO_INCREMENT UNIQUE,
 	state_id INT NOT NULL,
 	name VARCHAR(256) NOT NULL,
 	PRIMARY KEY(id),
