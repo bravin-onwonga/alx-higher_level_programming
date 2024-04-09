@@ -12,6 +12,6 @@ function * print () {
 exports.logMe = function (item) {
   if (item) {
     const n = printer.next().value;
-    console.log(n + ' : ' + item);
+    console.log(n + ': ' + item);
   }
 };
