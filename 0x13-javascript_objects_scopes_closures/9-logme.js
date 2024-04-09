@@ -1,9 +1,17 @@
 #!/usr/bin/node
-exports.logMe = function (item) {
-  let i = 0;
+const printer = print();
 
-  while (item) {
-    yield i;
-    console.log(i + ' : ' + item);
+function * print () {
+  let index = 0;
+  while (true) {
+    yield index;
+    index = index + 1;
+  }
+}
+
+exports.logMe = function (item) {
+  if (item) {
+    const n = printer.next().value;
+    console.log(n + ' : ' + item);
   }
 };
