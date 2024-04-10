@@ -15,7 +15,7 @@ fs.readFile(firstFile, 'utf8', function (err, dataFirst) {
       throw err;
     }
 
-    const fullText = dataFirst + '\n' + dataSecond;
+    const fullText = dataFirst + dataSecond;
 
     fs.writeFile(destination, fullText, (err) => {
       if (err) {
