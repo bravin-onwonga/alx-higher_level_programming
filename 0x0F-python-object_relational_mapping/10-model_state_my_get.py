@@ -15,7 +15,8 @@ Base = declarative_base()
 
 if __name__ == "__main__":
     if (len(sys.argv) == 5):
-        username, passwd, dbName, state_name = sys.argv[1:]
+        username, passwd, dbName = sys.argv[1:4]
+        state_name = str(sys.argv[4])
 
         engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format
                             (username, passwd, dbName), pool_pre_ping=True)
@@ -24,7 +25,7 @@ if __name__ == "__main__":
         session = Session()
 
         try:
-            state = session.query(State).filter(State.name == state_name).order_by(State.id).one()
+            state = session.query(State).filter(State.name ==  state_name).order_by(State.id).one()
             if (state):
                 print("{}".format(state.id))
             else:
