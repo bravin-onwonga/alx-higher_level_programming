@@ -28,7 +28,7 @@ if __name__ == "__main__":
         session.commit()
 
         state = session.query(State).filter(State.name == "Louisiana").\
-                order_by(State.id).one()
+            order_by(State.id).one()
 
         print(state.id)
 
