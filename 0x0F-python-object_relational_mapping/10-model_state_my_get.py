@@ -8,6 +8,7 @@ from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm.exc import NoResultFound
 
 Base = declarative_base()
 
@@ -22,10 +23,15 @@ if __name__ == "__main__":
         Session = sessionmaker(bind=engine)
         session = Session()
 
-        state = session.query(State).filter(State.name == state_name).order_by(State.id).one()
-        if (state):
-            print("{}".format(state.id))
-        else:
+        try:
+            state = session.query(State).filter(State.name == state_name).order_by(State.id).one()
+            if (state):
+                print("{}".format(state.id))
+            else:
+                print("Nothing")
+        except NoResultFound:
             print("Nothing")
-
-        session.close()
+        except AttributeError:
+            print("Nothing")
+        finally:
+            session.close()
