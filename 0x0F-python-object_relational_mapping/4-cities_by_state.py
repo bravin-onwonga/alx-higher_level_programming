@@ -16,6 +16,6 @@ if __name__ == "__main__":
     cur.execute(query)
     query_rows = cur.fetchall()
     for row in query_rows:
-        print("('{}', '{}', '{}')".format(row[0], row[2], row[4]))
+        print("({}, '{}', '{}')".format(row[0], row[2], row[4]))
     cur.close()
     conn.close()
