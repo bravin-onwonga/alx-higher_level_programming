@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module to list state.name ordered by id
+Module to list data if name starts with N
 """
 
 import sys
