@@ -4,21 +4,22 @@ Module to list state.name ordered by id
 """
 
 import sys
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
+from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
-class City(Base):
+class State(Base):
     """
     class representing our table states
     """
-    __tablename__ = 'cities'
+    __tablename__ = 'states'
 
-    id = Column(Integer, primary_key=True, unique=True, nullable=False)
+    id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+
+    cities = relationship('City', back_populates='state')
 
 if __name__ == "__main__":
     username, passwd, dbName = sys.argv[1:]
