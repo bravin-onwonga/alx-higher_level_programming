@@ -22,5 +22,7 @@ if __name__ == "__main__":
             print("{}".format(query_rows[i][0]), end=", ")
         if (len(query_rows) > 0):
             print("{}".format(query_rows[len(query_rows) - 1][0]))
+        else:
+            print()
         cur.close()
         conn.close()
