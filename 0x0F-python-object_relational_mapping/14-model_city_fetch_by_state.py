@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Module to list state.name ordered by id
+Prints all City objects from the database hbtn_0e_14_usa
 """
 
 import sys
-from model_state import Base, State
+from model_city import City
+from model_state import State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
 
 if __name__ == "__main__":
     username, passwd, dbName = sys.argv[1:]
@@ -18,9 +18,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).filter(State.name.like('%a%')).\
-        order_by(State.id).all()
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
+    cities = session.query(State, City).join(City, State.id == City.state_id).all()
+
+    for city in cities:
+        print("{}: ({}) {}".format(State.name, City.id, City.name))
 
     session.close()
