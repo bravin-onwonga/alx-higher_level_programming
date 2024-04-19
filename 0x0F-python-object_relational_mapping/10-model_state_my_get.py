@@ -30,10 +30,10 @@ if __name__ == "__main__":
             if (state):
                 print("{}".format(state.id))
             else:
-                print("Nothing")
+                print("Not found")
         except NoResultFound:
-            print("Nothing")
+            print("Not found")
         except AttributeError:
-            print("Nothing")
+            print("Not found")
         finally:
             session.close()
