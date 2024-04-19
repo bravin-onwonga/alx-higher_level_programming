@@ -10,6 +10,7 @@ from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
+
 class City(Base):
     """
     class representing our table states
@@ -19,6 +20,7 @@ class City(Base):
     id = Column(Integer, primary_key=True, unique=True, nullable=False)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+
 
 if __name__ == "__main__":
     username, passwd, dbName = sys.argv[1:]
