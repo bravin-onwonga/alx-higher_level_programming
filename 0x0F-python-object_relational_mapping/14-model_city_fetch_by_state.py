@@ -21,7 +21,7 @@ if __name__ == "__main__":
     cities = session.query(State, City).\
         join(City, State.id == City.state_id).all()
 
-    for city in cities:
-        print("{}: ({}) {}".format(State.name, City.id, City.name))
+    for state, city in cities:
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
 
     session.close()
