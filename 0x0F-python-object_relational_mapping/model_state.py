@@ -20,8 +20,6 @@ class State(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
 
-    cities = relationship('City', back_populates='state')
-
 
 if __name__ == "__main__":
     username, passwd, dbName = sys.argv[1:]
