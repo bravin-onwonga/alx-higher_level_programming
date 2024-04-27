@@ -13,5 +13,7 @@ if __name__ == "__main__":
         with request.urlopen(url) as response:
             body = response.read().decode('utf-8')
         print(body)
+    except error.HTTPError as e:
+        print("Error code:", e.code)
     except error.URLError as e:
-        print(e.code)
+        pass
