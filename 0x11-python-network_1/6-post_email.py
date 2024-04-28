@@ -9,7 +9,6 @@ import requests
 if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
-    data={'email': email}
-    req = requests.post(url, json = data)
-    res = requests.get(url)
-    print(res.text)
+    data = {'email': email}
+    res = requests.post(url, json=data)
+    print(res.json())
