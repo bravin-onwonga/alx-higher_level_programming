@@ -17,6 +17,6 @@ if __name__ == "__main__":
     i = 0
     while (i < 10):
         sha = data[i].get('sha')
-        name = data[i].get('commit').get('author').get('name')
+        name = data[i].get('commit').get('committer').get('name')
         print("{}: {}".format(sha, name))
         i += 1
