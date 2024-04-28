@@ -16,6 +16,8 @@ if __name__ == "__main__":
     data = res.json()
     i = 0
     while (i < 10):
+        if !(data[i]):
+            break
         sha = data[i].get('sha')
         name = data[i].get('commit').get('author').get('name')
         print("{}: {}".format(sha, name))
