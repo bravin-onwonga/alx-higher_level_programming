@@ -10,7 +10,7 @@ import requests
 
 if __name__ == "__main__":
     repo = sys.argv[1]
-    owner= sys.argv[2]
+    owner = sys.argv[2]
     res = requests.get("https://api.github.com/repos/{}/{}/commits"
                        .format(owner, repo))
     data = res.json()
