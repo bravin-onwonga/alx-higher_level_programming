@@ -12,7 +12,7 @@ if __name__ == "__main__":
     if (sys.argv[1]):
         q = sys.argv[1]
     data = {'q': q}
-    res = requests.post(url, json=data)
+    res = requests.post(url, data=data)
     if (type(res.json()) is not dict):
         print("Not a valid JSON")
     elif (len(res.json()) == 0):
