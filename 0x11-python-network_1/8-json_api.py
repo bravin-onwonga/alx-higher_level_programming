@@ -12,12 +12,12 @@ if __name__ == "__main__":
     if (sys.argv[1]):
         q = sys.argv[1]
     data = {'q': q}
-    res = requests.post(url, json = data)
+    res = requests.post(url, json=data)
     if (type(res.json()) is not dict):
         print("Not a valid JSON")
     elif (len(res.json()) == 0):
         print("No result")
     else:
-        id = res.json()['id']
-        name = res.json()['id']
-        print("[{}] {}".format(id, name))
+        res_id = res.json().get('id')
+        name = res.json().get('name')
+        print("[{}] {}".format(res_id, name))
