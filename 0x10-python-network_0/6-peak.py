@@ -4,6 +4,7 @@ Finds the largest number in a list and must have the lowest complexity
 """
 
 def find_peak(list_of_integers):
+    """Finds the largest value in a list"""
     lst = list_of_integers
     len_lst = len(lst)
     if (len_lst == 0):
@@ -17,6 +18,7 @@ def find_peak(list_of_integers):
 
 
 def quicksort(lst):
+    """Performs the quicksort"""
     if len(lst) <= 1:
         return lst
 
