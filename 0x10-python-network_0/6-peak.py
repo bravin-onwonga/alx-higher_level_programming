@@ -13,4 +13,5 @@ if __name__ == "__main__":
             return (lst[0])
         else:
             pivot = lst[0]
-            sort_list()
+            index = 0
+            for 
