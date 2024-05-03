@@ -1,3 +1,3 @@
 #!/bin/bash
 # Sends a request and displays only the status code of the response.
-curl -s -H "$1" | awk '/^HTTP/{print $2}'
+curl -s --output /dev/null --write-out "%{http_code}" "$1"
