@@ -32,3 +32,6 @@ def quicksort(lst):
             greater.append(x)
 
     return quicksort(lesser) + [pivot] + quicksort(greater)
+
+if __name__ == "__main__":
+    pass
