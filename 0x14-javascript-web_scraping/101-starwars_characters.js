@@ -15,9 +15,9 @@ request(requestURL, function (error, response, body) {
   const filmData = body.results[filmId - 1];
 
   for (const characterURL of filmData.characters) {
-    id = characterURL[characterURL.length - 2];
-    if (characterURL[characterURL.length - 3] != '/') {
-      id = `${characterURL[characterURL.length - 3]}${id}`
+    let id = characterURL[characterURL.length - 2];
+    if (characterURL[characterURL.length - 3] !== '/') {
+      id = `${characterURL[characterURL.length - 3]}${id}`;
     }
     myLst.push(id);
   }
